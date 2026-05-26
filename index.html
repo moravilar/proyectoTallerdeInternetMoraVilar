@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones y noticias</title>
+    <link rel="stylesheet" href="css/stylesmain.css">
+</head>
+<body>
+    <header>
+        <h1>Portal de noticias / el dolar</h1>
+        <nav>
+            <button id="btn-darkmode">Modo oscuro</button>
+            <a href="login.html">Iniciar sesión</a>
+        </nav>
+    </header>
+    <main En cada uno de estos que siguen son para ponerles lo de get en la api de bluelitycs>
+        <h2>Ultima cotización del dolar</h2>
+        <section id="cotizaciones">
+            <article id="oficial">
+                <h3 class="tituloscotizaciones"> Dolar Oficial</h3>
+                <p>Valor compra: </p>
+                <p>Valor venta: </p>
+                <p>Valor promedio: </p>
+                <img src="" alt="Grafico del promedio">
+            </article>
+            <article id="oficial_euro">
+                <h3 class="tituloscotizaciones">Euro</h3>
+                <p>Valor compra: </p>
+                <p>Valor venta: </p>
+                <p>Valor promedio: </p>
+                <img src="" alt="Grafico del promedio">
+            </article>
+            <article id="blue">
+                <h3 class="tituloscotizaciones">Blue</h3>
+                <p>Valor compra: </p>
+                <p>Valor venta: </p>
+                <p>Valor promedio: </p>
+                <img src="" alt="Grafico del promedio">
+            </article>
+            <article id="blue_euro">
+                <h3 class="tituloscotizaciones"> Blue Euro</h3>
+                <p>Valor compra: </p>
+                <p>Valor venta: </p>
+                <p>Valor promedio: </p>
+                <img src="" alt="Grafico del promedio">
+            </article>
+        </section>
+        <hr>
+        <section>
+            <h2> Cotizacion historica del dolar</h2>
+            <form id="formulario">
+                <label for="fecha">Elegi una fecha:</label>
+                <input type="date" id="fecha">
+                <button type="sumbit">Consultar</button>
+            </form>
+            <section id="resultadocothist">
+                <p> Cargando ultima cotizacion... </p>
+            </section>
+
+        </section>
+        <hr>
+        <section class="noticias">
+            <h2>Últimas noticias</h2>
+            <div class="ubicacion-noticias">
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 1</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 2</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 3</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/jsmain.js"></script>
+</body>
+</html>
