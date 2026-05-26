@@ -24,3 +24,7 @@
 .noticia h3, .noticia p{
     padding: 8px 12px;
 }
+.noticia h3{
+    font-size: 1.2em;
+    color: #333;
+}
