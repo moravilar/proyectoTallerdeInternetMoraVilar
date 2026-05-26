@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizaciones y noticias</title>
-    <link rel="stylesheet" href="css/stylesmain.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <h1>Portal de noticias / el dolar</h1>
         <nav>
+            <a href="index.html"></a>
+            <select>
+                <option> <img href=""></option>
+                <option> Ultima cotizacion</option>
+                <option> Cotizacion historica</option>
+                <option> Noticias</option>
+            </select>
             <button id="btn-darkmode">Modo oscuro</button>
             <a href="login.html">Iniciar sesión</a>
         </nav>
     </header>
-    <main En cada uno de estos que siguen son para ponerles lo de get en la api de bluelitycs>
+    <main>
         <h2>Ultima cotización del dolar</h2>
         <section id="cotizaciones">
             <article id="oficial">
@@ -50,18 +57,18 @@
         <section>
             <h2> Cotizacion historica del dolar</h2>
             <form id="formulario">
-                <label for="fecha">Elegi una fecha:</label>
+                <label for="fecha">Elegir una fecha:</label>
                 <input type="date" id="fecha">
                 <button type="sumbit">Consultar</button>
             </form>
             <section id="resultadocothist">
-                <p> Cargando ultima cotizacion... </p>
+                <p></p>
             </section>
 
         </section>
         <hr>
         <section class="noticias">
-            <h2>Últimas noticias</h2>
+            <h2>Últimas noticias</h2> <input id="buscadorxtitulo" placeholder="Buscar...">
             <div class="ubicacion-noticias">
                 <article class="noticia">
                     <img src="" alt="foto">
