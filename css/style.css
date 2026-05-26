@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    display: block;
+}
+.ubicacion-noticias{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 16px;
+}
+.noticia{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.noticia img{
+    width: 100%;
+    height: auto;
+}
+.noticia h3, .noticia p{
+    padding: 8px 12px;
+}
