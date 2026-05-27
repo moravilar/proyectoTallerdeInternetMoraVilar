@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Portal de noticias / el dolar</h1>
+        <nav>
+            <a href="index.html"><img>Home</a>
+            <select>
+                <option> <img href=""></option>
+                <option> Ultima cotizacion</option>
+                <option> Cotizacion historica</option>
+                <option> Noticias</option>
+            </select>
+            <button id="btn-darkmode">Modo oscuro</button>
+            <a href="login.html">Iniciar sesión</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Esta section seria como un "preview" de como quedarian las noticias,
+         que, 
+         >boton crear noticia, puede servir agregar como una noticia al codigo,
+         que desde css se sobreescriba por sobre las otras, entonces no es tanto lio.
+         es como que se inahbilita lo que esta detras (osea el preview), 
+         y salta por arriba una nueva "noticia" que tiene que aparecer en gris, 
+         o blanco, lo que sea, en el que sea como una noticia default, para eso 
+         se puede usar este codigo html:
+         <article class="noticia">
+            <img src="" alt="foto">
+            <input placeholder="Link de la imagen de la noticia">
+            <input placeholder="Link a la noticia">
+            <input placeholder="Titulo de la noticia">
+            <input placeholder="Descripción de la noticia">
+         </article>
+         luego se guardan los valores de cada cosa, y actualiza el preview
+         > boton eliminar noticia estaria bueno que es como que aparezca con
+         color diferente el carrousel, y todavia te permita seguir girando el carrousel,
+         con un boton arriba a la izq de tipo trash, y quite esa noticia del preview.
+         y que cuando pones trash, te traiga un alert tipo: "seguro que quieres eliminar esta
+         noticia? esta accion es irreversible"
+         ese boton habria que agregarlo desde js, no puedo hacerlo aca
+         > boton editar puede ser que tambien como que en la noticia en la que estas
+         (osea la ppal, la del medio en ese momento) se haga una copia
+         y que se sobreescriba (desde css), y que cada cosa (img, titulo, descripcion)
+         tenga como un boton de lapicito al lado, que cuando lo tocas te tira 
+         un input para cambiar esa cosa. por pantalla, o alert, es lo mismo.
+         codigo posible para esto (que cambiaria desde js):
+         <article class="noticia">
+            <img src="" alt="foto"><button><img src="" a="lapisito"></button>
+            <h3>Título de la noticia 1</h3><button><img src="" a="lapisito"></button>
+            <p>Descripción de la noticia</p><button><img src="" a="lapisito"></button>
+         </article>
+
+         por ultimo, siempre tiene que haber un botton de guardar esa accion que estamos haciendo,
+         y por afuera de todo un boton para guardar las noticias asi,
+          que este habilitado SOLO cuando no estemos creando editando lo que sea, y que
+          todo lo editado lo guarde y lo edite en el html main (asi como ya queda guardado
+          en el preview este para siempre que se autentique como admin(pensalo pili
+          como que si tiene autenticado, que tome de local storage estos datos), y session storage)
+        -->
+        <h2>Que quieres realizar?</h2>
+        <button id="createnoticia">Crear</button> <button id="editnoticia">Editar</button><button id="deletenoticia">Eliminar</button>
+        <section class="previewcarrouselnoticias">
+            <h2>Últimas noticias</h2> <input id="buscadorxtitulo" placeholder="Buscar...">
+            <div class="ubicacion-noticias">
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 1</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 2</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+                <article class="noticia">
+                    <img src="" alt="foto">
+                    <h3>Título de la noticia 3</h3>
+                    <p>Descripción de la noticia</p>
+                </article>
+            <button class="buttoncarrousel" id="buttonizq"><</button>
+            <button class="buttoncarrousel" id="buttonizq">></button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/jsmain.js"></script>
+    <script src="js/jsadmin.js"></script>
+</body>
+</html>
