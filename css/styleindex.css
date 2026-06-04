@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    font-family: sans-serif;
+}
+ 
+/*HEADER*/
+ 
+header {
+    width: 100%;
+}
+ 
+/*Fila superior: hamburguesa | logo | acciones */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+}
+ 
+.header-izquierda,
+.header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    flex-wrap: nowrap;   /* evita el apilado */
+}
+ 
+.header-derecha {
+    justify-content: flex-end;
+}
+ 
+.header-logo {
+    flex: 2;
+    text-align: center;
+}
+ 
+/* Botón hamburguesa */
+.btn-hamburguesa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 4px;
+    flex-shrink: 0;
+}
+ 
+/* Los elementos dentro de header-derecha no se hacen bloque */
+.header-derecha button,
+.header-derecha a {
+    white-space: nowrap;
+    display: inline-block;
+}
+ 
+/* Fila de navegación */
+.header-nav {
+    border-top: 1px solid #ccc;
+}
+ 
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 24px;
+}
+ 
+.header-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+ 
+/*MOBILE: menú hamburguesa*/
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+ 
+    .header-nav.abierto {
+        display: block;
+    }
+ 
+    .header-nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        align-items: stretch;
+    }
+ 
+    .header-nav ul li a {
+        display: block;
+        padding: 12px 24px;
+        border-bottom: 1px solid #eee;
+    }
+}
+ 
+/*MAIN*/
+main {
+    padding: 24px;
+}
+ 
+/*COTIZACIONES*/
+#cotizaciones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+ 
+@media (max-width: 900px) {
+    #cotizaciones { grid-template-columns: repeat(2, 1fr); }
+}
+ 
+@media (max-width: 500px) {
+    #cotizaciones { grid-template-columns: 1fr; }
+}
+ 
+/*NOTICIAS*/
+.noticias {
+    margin-top: 32px;
+}
+ 
+#buscadorxtitulo {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    margin: 12px 0 20px;
+}
+ 
+/*
+   Grilla de 6 columnas iguales:
+   noticia 1 → columnas 1-4, filas 1-2  (la destacada)
+   noticia 2 → columnas 5-6, fila 1     (sidebar arriba)
+   noticia 3 → columnas 5-6, fila 2     (sidebar abajo)
+   noticias 4-6 → 2 columnas cada una, fila 3
+   noticias 7-9 → 2 columnas cada una, fila 4 (vacías / nuevas)
+*/
+.ubicacion-noticias {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+ 
+/* Todas las imágenes: no se deforman */
+.noticia img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+ 
+/* Todos los títulos: simples, sin overlay */
+.noticia h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 8px;
+}
+ 
+.noticia p {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+ 
+/* Esto vendria a ser todo lo de la noticia mas grande */
+.ubicacion-noticias .noticia:nth-child(1) {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.ubicacion-noticias .noticia:nth-child(1) img {
+    flex: 1;           /* crece para ocupar el alto que determinan las noticias 2 y 3 */
+    min-height: 200px;
+}
+ 
+.ubicacion-noticias .noticia:nth-child(1) h3 {
+    font-size: 1.1rem; /* un poco mas grande por ser la principal */
+}
+ 
+/* las noticias del costadito */
+.ubicacion-noticias .noticia:nth-child(2) {
+    grid-column: 5 / 7;
+    grid-row: 1;
+}
+ 
+.ubicacion-noticias .noticia:nth-child(3) {
+    grid-column: 5 / 7;
+    grid-row: 2;
+}
+ 
+.ubicacion-noticias .noticia:nth-child(2) img,
+.ubicacion-noticias .noticia:nth-child(3) img {
+    height: 155px;
+}
+ 
+/* las noticias de abajo */
+.ubicacion-noticias .noticia:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
+.ubicacion-noticias .noticia:nth-child(5) { grid-column: 3 / 5; grid-row: 3; }
+.ubicacion-noticias .noticia:nth-child(6) { grid-column: 5 / 7; grid-row: 3; }
+ 
+.ubicacion-noticias .noticia:nth-child(n+4):nth-child(-n+6) {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+ 
+.ubicacion-noticias .noticia:nth-child(n+4):nth-child(-n+6) img {
+    width: 250px;
+    height: 105px;
+    flex-shrink: 0;
+} 
+ 
+/*Responsive noticias*/
+@media (max-width: 900px) {
+    .noticias-fila-top {
+        grid-template-columns: 1fr;
+    }
+    .noticias-sidebar {
+        flex-direction: row;
+    }
+    .noticias-fila-bottom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ 
+@media (max-width: 600px) {
+    .noticias-fila-bottom {
+        grid-template-columns: 1fr;
+    }
+    .noticia-horizontal {
+        flex-direction: column;
+    }
+    .noticia-horizontal img {
+        width: 100%;
+        height: 180px;
+    }
+}
+ 
