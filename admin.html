@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <script>
+        if (!sessionStorage.getItem("token")) {
+            window.location.href = "login.html"
+        }
+    </script>
     <header>
         <h1>Portal de noticias / el dolar</h1>
         <nav>
@@ -18,7 +23,7 @@
                 <option> Noticias</option>
             </select>
             <button id="btn-darkmode">Modo oscuro</button>
-            <a href="login.html">Iniciar sesión</a>
+            <button id="boton-logout">Cerrar sesión</button>
         </nav>
     </header>
     <main>
@@ -83,7 +88,7 @@
                     <img src="imagenes\zarpa-el-crucero-mas-grande-del-mundo-tiene-forma-de-tortuga-marina-capacidad-para-60000-pasajeros-shoppings-con-piletas-y-500-metros-de-largo-YO4POXX3CJC6NGGYQKCIJ.jpg" alt="foto">
                     <h3>Zarpa el crucero más grande del mundo: tiene forma de tortuga marina, capacidad para 60.000 pasajeros, shoppings con piletas y 500 metros de largo</h3>
                     <p>El estudio italiano Lazzarini Design presenta Pangeos, una gigantesca ciudad flotante con forma de tortuga marina que mediría más de 500 metros de largo y 615 de ancho, con capacidad para 60.000 pasajeros. La embarcación —clasificada en una nueva categoría llamada "terayate"— contaría con hoteles de lujo, shoppings, áreas verdes, canchas deportivas, piscinas y hasta un puerto interior para naves más pequeñas. En cuanto a la tecnología, funcionaría con propulsión a hidrógeno y tres motores principales, además de hidroalas para elevar parcialmente la embarcación y reducir la resistencia al avance. Por el momento sigue siendo un proyecto conceptual sin fecha confirmada de construcción, aunque el lugar elegido para desarrollarlo sería Arabia Saudita, donde habría que dragar más de un kilómetro cuadrado de mar para crear el astillero necesario.</p>
-                </article>>
+                </article>
                 </article>
                 <article class="noticia">
                     <img src="imagenes\la-petrolera-que-pionereo-el-no-convencional-SQDMUHE2LRH3XPDIBZ7VPOBBFI.jpg" alt="foto">
@@ -101,10 +106,12 @@
                     <p>Bill Gates, cofundador de Microsoft, predice que los celulares tienen los días contados y serán reemplazados por los llamados "tatuajes electrónicos", una tecnología desarrollada por Chaotic Moon que combina sensores inteligentes con tinta especial aplicada directamente sobre la piel. Estos tatuajes no solo podrían reemplazar funciones básicas del celular como enviar mensajes o acceder a información, sino también monitorear la salud en tiempo real, almacenar datos médicos y determinar la ubicación del usuario. En paralelo, Gates también advirtió sobre el impacto negativo de los smartphones en los niños, argumentando que el uso constante de pantallas desplaza las "horas de aburrimiento" que considera cruciales para desarrollar la creatividad y el pensamiento crítico. Por eso propone reconstruir lo que llama la "infraestructura de la infancia", promoviendo espacios libres de celulares en escuelas y parques infantiles como alternativa atractiva para las nuevas generaciones.</p>
                 </article>
             </div>
-        </section>
     </main>
 
-    <script src="js/jsmain.js"></script>
+    <script src="js/initialNews.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/jsadmin.js"></script>
 </body>
 </html>

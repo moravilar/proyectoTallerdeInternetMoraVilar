@@ -1,6 +1,9 @@
 // news - muestra las noticias que estan en localStorage
 // y tmb tiene el buscador por titulo
+// semilla - si no hay noticias guardadas, cargo las 6 por defecto
+// así news.js siempre tiene algo para mostrar
 
+semilladenoticias() // va antes de mostrarnews()
 function mostrarnews() {
     const contenedor = document.querySelector(".ubicacion-noticias")
     if (!contenedor) return // por si se llama desde una pag q no tiene noticias

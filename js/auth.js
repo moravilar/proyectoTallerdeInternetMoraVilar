@@ -12,9 +12,9 @@ async function logindeladmin(username, password) {
 
         const datos = await rta.json()
 
-        if (datos.token) {
+        if (datos.accessToken) {
             // si existe el token es pq las credenciales fueron correctas
-            sessionStorage.setItem("token", datos.token)
+            sessionStorage.setItem("token", datos.accessToken) // guardo el token en sessionStorage para usarlo en otras paginas
             sessionStorage.setItem("usuario", datos.username)
             window.location.href = "admin.html" // mando al admin a su panel
         } else {
@@ -48,4 +48,18 @@ if (login_del_form) {
 const boton_log_out = document.getElementById("boton-logout")
 if (boton_log_out) {
     boton_log_out.addEventListener("click", log_out)
+}
+// mostrar/ocultar contraseña en login
+const btnVerPass = document.getElementById("mostrarcontraseña")
+if (btnVerPass) {
+    btnVerPass.addEventListener("click", function() {
+        const inputPass = document.getElementById("password")
+        if (inputPass.type === "password") {
+            inputPass.type = "text"
+            btnVerPass.textContent = "Ocultar contraseña"
+        } else {
+            inputPass.type = "password"
+            btnVerPass.textContent = "Mostrar Contraseña"
+        }
+    })
 }
