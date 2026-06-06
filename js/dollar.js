@@ -10,22 +10,22 @@ async function mostrar_cotizacion() {
         const datos = await rta.json() // el json() tmb es async1!1!1!
 
         seccion.innerHTML = `
-            <article>
+            <article class="cot-oficial">
                 <h3>Dólar Oficial</h3>
                 <p>Compra: $${datos.oficial.value_buy}</p>
                 <p>Venta: $${datos.oficial.value_sell}</p>
             </article>
-            <article>
+            <article class="cot-blue">
                 <h3>Blue</h3>
                 <p>Compra: $${datos.blue.value_buy}</p>
                 <p>Venta: $${datos.blue.value_sell}</p>
             </article>
-            <article>
+            <article class="cot-euro-oficial">
                 <h3>Euro Oficial</h3>
                 <p>Compra: $${datos.oficial_euro.value_buy}</p>
                 <p>Venta: $${datos.oficial_euro.value_sell}</p>
             </article>
-            <article>
+            <article class="cot-euro-blue">
                 <h3>Euro Blue</h3>
                 <p>Compra: $${datos.blue_euro.value_buy}</p>
                 <p>Venta: $${datos.blue_euro.value_sell}</p>
@@ -37,11 +37,12 @@ async function mostrar_cotizacion() {
     }
 }
 
-// cotizacion historica, esto va en index.html con el formulario de fecha
+// cotizacion historica, esto va en index.html con el formulario de fecha. Cada vez que un usuario quiera ver la cotizacion de una fecha determinada, el js mostrara la cotizacion de ese dia, o un mensaje de error si no se encuentra esa fecha en la api. La api de bluelytics tiene datos desde 2020, asi que no se pueden buscar fechas anteriores a eso.
+// solo sera capaz de mostrar las cotizaciones del dolar oficial y blue, no del euro.//
 const formulario = document.getElementById("formulario")
 if (formulario) {
     formulario.addEventListener("submit", async function(e) {
-        e.preventDefault() // sin esto recargaba la página cada vez que mandaba el form
+        e.preventDefault()
         const fecha = document.getElementById("fecha").value
         const resultado = document.getElementById("resultadocothist")
 
@@ -55,12 +56,21 @@ if (formulario) {
             const datos = await rta.json()
             resultado.innerHTML = `
                 <h3>Cotización del ${fecha}</h3>
-                <p>Oficial — Compra: $${datos.oficial.value_buy} | Venta: $${datos.oficial.value_sell}</p>
-                <p>Blue — Compra: $${datos.blue.value_buy} | Venta: $${datos.blue.value_sell}</p>`
+                <div class="resultado-historico">
+                    <article class="hist-oficial">
+                        <h3>Dólar Oficial</h3>
+                        <p>Compra: $${datos.oficial.value_buy}</p>
+                        <p>Venta: $${datos.oficial.value_sell}</p>
+                    </article>
+                    <article class="hist-blue">
+                        <h3>Blue</h3>
+                        <p>Compra: $${datos.blue.value_buy}</p>
+                        <p>Venta: $${datos.blue.value_sell}</p>
+                    </article>
+                </div>`
         } catch (error) {
             resultado.innerHTML = "<p>No se encontró cotización para esa fecha.</p>"
         }
     })
 }
-
 mostrar_cotizacion()

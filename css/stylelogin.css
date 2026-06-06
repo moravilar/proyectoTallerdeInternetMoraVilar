@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+ 
+body {
+    min-height: 100vh;
+    background-color: #f0f2f8;
+}
+
+/* header, lo que hice fue adaptar el header del index para que quede bien en el admin, es decir, con el boton de cerrar sesion y el de darkmode. No sali de lo que ya hice en el index */
+header {
+    width: 100%;
+}
+ 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+}
+ 
+.header-izquierda,
+.header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    flex-wrap: nowrap;
+}
+ 
+.header-derecha {
+    justify-content: flex-end;
+}
+ 
+.header-logo {
+    flex: 2;
+    text-align: center;
+}
+ 
+.header-logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    font-family: Georgia, serif;
+}
+ 
+.btn-hamburguesa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 4px;
+    flex-shrink: 0;
+}
+ 
+.header-derecha button {
+    white-space: nowrap;
+    display: inline-block;
+}
+ 
+#btn-darkmode {
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+ 
+#btn-darkmode:hover {
+    background-color: #333;
+    color: white;
+}
+ 
+/* el main vendria a ser el padre, posicionamos todo respecto a el. En esta caso es como una carta con bordes redondeados*/
+main {
+    max-width: 420px; /*el tamaño de la carta*/
+    margin: 60px auto;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); /*esta sombra da un efecto de profundidad que queda lindo*/
+    padding: 2.5rem;
+    text-align: center;
+}
+ 
+main h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+    color: #111;
+}
+ 
+main > p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+ 
+/* el formulario para iniciar sesion */
+#form-login {
+    display: flex;
+    flex-direction: column; /*uno debajo del otro*/
+    gap: 0.6rem; /*es la distancia entre los elementos del formulario*/
+    text-align: left;
+}
+ 
+#form-login label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+/* vendrian a ser los espacios para poner la contraseña y el usuario*/
+#username, #password {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+    background: #ffffff;
+    transition: border-color 0.2s;
+}
+ 
+#username:focus, #password:focus {
+    outline: none;
+    border-color: #333;
+}
+ 
+/* boton para mostrar contraseña*/
+#mostrarcontraseña {
+    font-size: 0.8rem;
+    color: #555;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    align-self: flex-end;
+}
+
+/*algo sutil para que sea mas interactivo*/
+
+#mostrarcontraseña:hover {
+    color: #111;
+    text-decoration: underline;
+}
+ 
+/*aca esta todo lo del boton, el enviar y el hover para que sea un poco interactivo*/
+#enviar {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+}
+ 
+#enviar:hover {
+    background-color: #111;
+}
+/* dark mode */
+body.dark {
+    background-color: #111;
+}
+ 
+body.dark header {
+    background-color: #1a1a1a;
+    border-bottom-color: #444;
+}
+ 
+body.dark header h1 {
+    color: #f0f0f0;
+}
+ 
+body.dark #btn-darkmode {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+ 
+body.dark #btn-darkmode:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+ 
+body.dark main {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+ 
+body.dark main h2 {
+    color: #f0f0f0;
+}
+ 
+body.dark main > p {
+    color: #aaa;
+}
+ 
+body.dark #form-login label {
+    color: #ccc;
+}
+ 
+body.dark #username, body.dark #password {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+ 
+body.dark #mostrarcontraseña {
+    color: #aaa;
+}
+ 
+body.dark #mostrarcontraseña:hover {
+    color: #f0f0f0;
+}
+ 
+body.dark #enviar {
+    background-color: #444;
+}
+ 
+body.dark #enviar:hover {
+    background-color: #666;
+}

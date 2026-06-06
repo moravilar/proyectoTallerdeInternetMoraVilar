@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styleadmin.css">
 </head>
 <body>
     <script>
@@ -13,19 +13,19 @@
         }
     </script>
     <header>
-        <h1>Portal de noticias / el dolar</h1>
-        <nav>
-            <a href="index.html"><img>Home</a>
-            <select>
-                <option> <img href=""></option>
-                <option> Ultima cotizacion</option>
-                <option> Cotizacion historica</option>
-                <option> Noticias</option>
-            </select>
+    <div class="header-top">
+        <div class="header-izquierda">
+            <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú">☰</button>
+        </div>
+        <div class="header-logo">
+            <h1>Portal de Noticias</h1>
+        </div>
+        <div class="header-derecha">
             <button id="btn-darkmode">Modo oscuro</button>
             <button id="boton-logout">Cerrar sesión</button>
-        </nav>
-    </header>
+        </div>
+    </div>
+</header>
     <main>
         <!-- Esta section seria como un "preview" de como quedarian las noticias,
          que, 
@@ -70,7 +70,7 @@
           en el preview este para siempre que se autentique como admin(pensalo pili
           como que si tiene autenticado, que tome de local storage estos datos), y session storage)
         -->
-        <h2>Que quieres realizar?</h2>
+        <h2 id="Quequieresrealizar">¿Qué quieres realizar?</h2>
         <button id="createnoticia">Crear</button> <button id="editnoticia">Editar</button><button id="deletenoticia">Eliminar</button>
             <h2>Últimas noticias</h2> <input id="buscadorxtitulo" placeholder="Buscar...">
             <div class="ubicacion-noticias">

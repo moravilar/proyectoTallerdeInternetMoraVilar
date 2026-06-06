@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+ 
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+}
+ 
+/* header, lo que hice fue adaptar el header del index para que quede bien en el admin, es decir, con el boton de cerrar sesion y el de darkmode. No sali de lo que ya hice en el index */
+header {
+    width: 100%;
+}
+ 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+}
+ 
+.header-izquierda,
+.header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    flex-wrap: nowrap;
+}
+ 
+.header-derecha {
+    justify-content: flex-end;
+}
+ 
+.header-logo {
+    flex: 2;
+    text-align: center;
+}
+ 
+.header-logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    font-family: Georgia, serif;
+}
+ 
+.btn-hamburguesa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 4px;
+    flex-shrink: 0;
+}
+ 
+.header-derecha button,
+.header-derecha a {
+    white-space: nowrap;
+    display: inline-block;
+}
+ 
+#btn-darkmode {
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+ 
+#btn-darkmode:hover {
+    background-color: #333;
+    color: white;
+}
+ 
+/* cerrar sesión — mismo estilo que el link de "Iniciar sesión" en index */
+#boton-logout {
+    padding: 0.4rem 1.2rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: Georgia, serif;
+}
+ 
+#boton-logout:hover {
+    background-color: #555;
+}
+ 
+/* MAIN */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+ 
+main h2 {
+    text-align: left;
+    margin-bottom: 16px;
+    margin-top: 24px;
+}
+ 
+/* SECCIÓN CRUD — los tres botones para que el admin cree, elimine o edite una noticia. esta parte hay que hacerla todavia, si tocas los botones no hacen nada, pero el diseño ya lo dejo listo para que funcionen despues */
+#createnoticia,
+#editnoticia,
+#deletenoticia {
+    padding: 0.5rem 1.4rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: 8px;
+}
+ 
+#createnoticia {
+    background-color: #333;
+    color: white;
+}
+ 
+#createnoticia:hover {
+    background-color: #111;
+}
+ 
+#editnoticia {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: #333;
+    border: 2px solid #333;
+}
+ 
+#editnoticia:hover {
+    background-color: #e1e8fa;
+}
+ 
+#deletenoticia {
+    background: transparent;
+    color: #c0392b;
+    border: 2px solid #c0392b;
+}
+ 
+#deletenoticia:hover {
+    background-color: #c0392b;
+    color: white;
+}
+ 
+/* esto hace que para el admin se mas facil buscar noticias en el caso que haya muchas, por eso lo dejamos*/
+#buscadorxtitulo {
+    padding: 0.5rem 1rem;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    margin-bottom: 1rem;
+    display: block;
+}
+ 
+/* las noticias se ven exactamente igual que en el index, el mismo orden y todo */
+.ubicacion-noticias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+ 
+.noticia {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+ 
+.noticia:hover {
+    transform: scale(1.03);
+}
+ 
+.noticia h3 {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+}
+ 
+.noticia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+ 
+.noticia p {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+}
+ 
+/* darkmode*/
+body.dark {
+    background-color: #111;
+    color: #f0f0f0;
+}
+ 
+body.dark header {
+    background-color: #1a1a1a;
+    border-bottom-color: #444;
+}
+ 
+body.dark header h1 {
+    color: #f0f0f0;
+}
+ 
+body.dark header nav a,
+body.dark #boton-logout {
+    background-color: #444;
+}
+ 
+body.dark header nav a:hover,
+body.dark #boton-logout:hover {
+    background-color: #666;
+}
+ 
+body.dark #btn-darkmode {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+ 
+body.dark #btn-darkmode:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+ 
+body.dark #editnoticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border-color: #555;
+}
+ 
+body.dark #buscadorxtitulo {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+ 
+body.dark .noticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+ 
+body.dark .noticia h3 {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+}
+ 
+body.dark .noticia p {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #ccc;
+}
+/* en pantallas chicas: nav oculto, aparece con el hamburguesa */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    .header-nav.nav-abierto {
+        display: block;
+    }
+}
+
+/* en pantallas grandes: hamburguesa oculto, nav siempre visible */
+@media (min-width: 769px) {
+    .btn-hamburguesa {
+        display: none;
+    }
+}

@@ -63,3 +63,11 @@ if (btnVerPass) {
         }
     })
 }
+// index.html: mostrar el botón correcto según si hay sesión activa
+const linkIniciar = document.getElementById("link-iniciar")
+if (linkIniciar) {
+    if (sessionStorage.getItem("token")) {
+        linkIniciar.style.display = "none"
+        if (boton_log_out) boton_log_out.style.display = "inline-block"
+    }
+}
