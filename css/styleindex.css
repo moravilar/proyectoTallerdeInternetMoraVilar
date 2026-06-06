@@ -246,4 +246,8 @@ main {
         height: 180px;
     }
 }
+body.dark {
+    background-color: #111;
+    color: #fff;
+}
  
