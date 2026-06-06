@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="css/styleadmin.css">
-
 </head>
 <body>
     <script>
@@ -26,6 +25,9 @@
 
             <button id="boton-logout">Cerrar sesión</button>
         </div>
+
+    </div>
+</header>
         <nav class="header-nav" id="header-nav">
             <ul>
                 <li><a href="#cotizaciones">Última cotización</a></li>
@@ -79,7 +81,7 @@
           en el preview este para siempre que se autentique como admin(pensalo pili
           como que si tiene autenticado, que tome de local storage estos datos), y session storage)
         -->
-        <h2>Que quieres realizar?</h2>
+        <h2 id="Quequieresrealizar">¿Qué quieres realizar?</h2>
         <button id="createnoticia">Crear</button> <button id="editnoticia">Editar</button><button id="deletenoticia">Eliminar</button>
             <h2>Últimas noticias</h2> <input id="buscadorxtitulo" placeholder="Buscar...">
             <div class="ubicacion-noticias">

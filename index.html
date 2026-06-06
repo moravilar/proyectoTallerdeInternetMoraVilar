@@ -17,7 +17,8 @@
         </div>
         <div class="header-derecha">
             <button id="btn-darkmode">Modo oscuro</button>
-            <a href="login.html">Iniciar sesión</a>
+            <a href="login.html" id="link-iniciar">Iniciar sesión</a>
+            <button id="boton-logout" style="display:none">Cerrar sesión</button>
         </div>
     </div>
     <nav class="header-nav" id="header-nav">
@@ -29,7 +30,7 @@
     </nav>
 </header>
     <main>
-        <h2>Ultima cotización del dolar</h2>
+        <h2>Últimas Cotizaciones</h2>
         <section id="cotizaciones">
             <article id="oficial">
                 <h3 class="tituloscotizaciones"> Dolar Oficial</h3>
@@ -56,9 +57,8 @@
                 <p>Valor promedio: </p>
             </article>
         </section>
-        <hr>
         <section>
-            <h2> Cotizacion historica del dolar</h2>
+            <h2> Cotización historica del dolar</h2>
             <form id="formulario">
                 <label for="fecha">Elegir una fecha:</label>
                 <input type="date" id="fecha">
@@ -67,42 +67,46 @@
             <section id="resultadocothist">
                 <p></p>
             </section>
+            <br>
         </section>
-        <hr>
        <section class="noticias" id="noticias">
     <h2>Últimas noticias</h2>
-    <input id="buscadorxtitulo" placeholder="Buscar...">
-    <br>
+    <input id="buscadorxtitulo" placeholder="Buscar Noticia...">
     <div class="ubicacion-noticias">
         <article class="noticia">
             <img src="imagenes/hombre-marte.webp" alt="foto">
             <h3>Salto para la humanidad: científicos descubren cómo viajar a Marte en 30 días</h3>
-            <p>La carrera por conquistar el espacio volvió a dar un giro inesperado. Científicos rusos presentaron un motor de plasma impulsado por tecnología magnética avanzada.</p>
+            <p></p>
         </article>
- 
+
         <article class="noticia">
             <img src="imagenes/los-secretos-de-la-gran-piramide-2245256.jpg" alt="foto">
             <h3>Los secretos de la Gran Pirámide salieron a la luz después de 4.600 años</h3>
+            <p></p>
         </article>
  
         <article class="noticia">
             <img src="imagenes/zarpa-el-crucero-mas-grande-del-mundo-tiene-forma-de-tortuga-marina-capacidad-para-60000-pasajeros-shoppings-con-piletas-y-500-metros-de-largo-YO4POXX3CJC6NGGYQKCIJ.jpg" alt="foto">
             <h3>Zarpa el crucero más grande del mundo: 500 metros de largo y capacidad para 60.000 pasajeros</h3>
+            <p></p>
         </article>
  
         <article class="noticia">
             <img src="imagenes/la-petrolera-que-pionereo-el-no-convencional-SQDMUHE2LRH3XPDIBZ7VPOBBFI.jpg" alt="foto">
             <h3>La petrolera que apostó a Vaca Muerta vuelve a la carga con la inversión más grande de su historia</h3>
+            <p></p>
         </article>
  
         <article class="noticia">
             <img src="imagenes/AA24BbAX.jpg" alt="foto">
             <h3>Un estudio matemático calculó las probabilidades de Argentina de ganar el Mundial 2026</h3>
+            <p></p>
         </article>
  
         <article class="noticia">
             <img src="imagenes/billgates.jpg" alt="foto">
             <h3>La conclusión de los celulares: Bill Gates reveló cuál será el dispositivo que los sustituirá</h3>
+            <p></p>
         </article>
     </div>
 </section>
@@ -112,5 +116,7 @@
     <script src="js/darkmode.js"></script>
     <script src="js/dollar.js"></script>
     <script src="js/news.js"></script>
+    <script src="js/auth.js"></script>
+    
 </body>
 </html>

@@ -16,8 +16,16 @@ if (btnDark) { // el if es pq en algunas paginas no esta el boton y tiraba error
         document.body.classList.toggle("dark")
         const esDark = document.body.classList.contains("dark")
         localStorage.setItem("darkmode", esDark)
-        // o sea siempre va a decir "Modo oscuro" aunque ya estes en dark lol
+        btnDark.textContent = esDark ? "Modo claro" : "Modo oscuro"
     })
 }
 
+// hamburguesa - muestra/oculta el nav al clickear
+const btnHamburguesa = document.getElementById("btn-hamburguesa")
+const headerNav = document.getElementById("header-nav")
+if (btnHamburguesa && headerNav) {
+    btnHamburguesa.addEventListener("click", function() {
+        headerNav.classList.toggle("nav-abierto")
+    })
+}
 aplicarDarkmode() // esto va al final para q se ejecute cuando carga la pag

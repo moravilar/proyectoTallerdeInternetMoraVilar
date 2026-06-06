@@ -3,7 +3,6 @@
 // semilla - si no hay noticias guardadas, cargo las 6 por defecto
 // así news.js siempre tiene algo para mostrar
 
-semilladenoticias() // va antes de mostrarnews()
 function mostrarnews() {
     const contenedor = document.querySelector(".ubicacion-noticias")
     if (!contenedor) return // por si se llama desde una pag q no tiene noticias
@@ -19,8 +18,8 @@ function mostrarnews() {
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
         <article class="noticia">
-            <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <h3>${noticia.titulo}</h3>
+            <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <p>${noticia.descripcion}</p>
         </article>`
     }).join("") // el join es pq map devuelve un array y necesito un string para el innerHTML
@@ -43,8 +42,8 @@ if (buscador) {
         contenedor.innerHTML = filtradas.map(function(n) {
             return `
             <article class="noticia">
-                <img src="${n.imagen}" alt="${n.titulo}">
                 <h3>${n.titulo}</h3>
+                <img src="${n.imagen}" alt="${n.titulo}">
                 <p>${n.descripcion}</p>
             </article>`
         }).join("")
