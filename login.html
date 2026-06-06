@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylelogin.css">
 </head>
 <body>
     <header>
-        <h1>Portal de noticias / el dolar</h1>
-        <nav>
-            <a href="index.html"><img>Home</a>
-            <select>
-                <option> <img href=""></option>
-                <option> Ultima cotizacion</option>
-                <option> Cotizacion historica</option>
-                <option> Noticias</option>
-            </select>
+    <div class="header-top">
+        <div class="header-izquierda">
+            <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú">☰</button>
+        </div>
+        <div class="header-logo">
+            <h1>Portal de Noticias</h1>
+        </div>
+        <div class="header-derecha">
             <button id="btn-darkmode">Modo oscuro</button>
             <a href="login.html">Iniciar sesión</a>
-        </nav>
+        </div>
+    </div>
+    <nav class="header-nav" id="header-nav">
+        <ul>
+            <li><a href="#cotizaciones">Última cotización</a></li>
+            <li><a href="#cot-historica">Cotización histórica</a></li>
+            <li><a href="#noticias">Noticias</a></li>
+        </ul>
+    </nav>
     </header>
     <main>
         <h2>Iniciar sesión</h2>
