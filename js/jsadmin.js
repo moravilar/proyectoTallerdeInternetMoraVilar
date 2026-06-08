@@ -107,6 +107,8 @@ function editarnoticia() {
                 const titulonoticia= document.getElementById("titulo").value
                 const descnoticia= document.getElementById("desc").value
 
+
+                //ACA ME TENGO Q PONER A LABURARRR (morita)
                 if (!titulonoticia || !descnoticia || !imagennoticia) {
                 alert("Por favor, completar todos los campos")
                 return}

@@ -70,7 +70,7 @@ const botonmodificar = document.getElementById("modificar")
 if (linkIniciar) {
     if (sessionStorage.getItem("token")) {
         linkIniciar.style.display = "none"
-        botonmodificar.style.display = "block"
+        botonmodificar.style.display = "inline-block"
         if (boton_log_out) boton_log_out.style.display = "inline-block"
     }
 }
