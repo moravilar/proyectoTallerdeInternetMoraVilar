@@ -11,14 +11,14 @@ body {
     background: #ffffff;
 }
 /*HEADER*/
- 
+/*Header con Flexbox: display: flex + justify-content: space-between reparten las 3 cajas del header (izquierda, logo centrado, derecha).*/ 
 header {
     width: 100%;
 }
  
 /* aca estan todos lo elemento que aparecen en el header */
 .header-top {
-    display: flex;
+    display: flex; /*convierto el contenedor en una caja flexible, los elementos se ordenan en filas o columnas, segun se disponga*/
     align-items: center;
     justify-content: space-between;
     padding: 14px 24px;
@@ -74,14 +74,14 @@ header {
 .header-nav {
     border-top: 1px solid #ccc;
 }
-.header-nav ul a  {
+.header-nav ul a  { /*son las secciones de la página; gracias a esto se ven de color negro*/
     padding: 10px 24px;
     padding-top: 14px;
     padding-bottom: 14px;
     color: #000000;
 }
  
-.header-nav ul {
+.header-nav ul { /*gracias a esto se ve la disposicion en forma de fila*/
     display: flex;
     list-style: none;
     justify-content: center;
@@ -96,7 +96,7 @@ header {
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
-header .header-logo a {
+header .header-logo {
     font-size: 1.2rem;
     font-weight: 700;
     color: #000000;
@@ -117,7 +117,7 @@ header .header-logo a {
 }
 /*le agrego un hover para que se vea mas interactivo, al pasar el mouse por encima cambia el fondo y el texto*/
 #btn-darkmode:hover {
-    background-color: #000000;
+    background-color: #333;
     color: white;
 }
 /*algo parecido hago para el boton del login*/
@@ -132,10 +132,10 @@ header .header-logo a {
 }
 /*tambien le pongo hover para que se vea intercativo*/
 .header-derecha #boton-logout:hover {
-    background-color: #000000;
+    background-color: #333;
 }
 
-#link-iniciar {
+#link-iniciar { /*esto esta definido dentro del js, no en el index. Dado que esta vinculado con el index podemos modificar con css*/
     padding: 0.4rem 1.2rem;
     background-color: #000000;
     color: white;
@@ -148,6 +148,22 @@ header .header-logo a {
 }
 
 #link-iniciar:hover {
+    background-color: #333;
+}
+
+#modificar{
+        padding: 0.4rem 1.2rem;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#modificar:hover {
     background-color: #333;
 }
 
@@ -342,7 +358,7 @@ body.dark .header-nav ul a {
     color: #f0f0f0;
 }
 
-body.dark .header-logo a {
+body.dark .header-logo {
     color: #f0f0f0;
 }
 

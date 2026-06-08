@@ -46,6 +46,18 @@ header {
     color: #000;
     font-family: Georgia, serif;
 }
+
+.header-derecha #modificar{
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: #000000;
+    text-decoration: none;
+}
  
 .btn-hamburguesa {
     background: none;
@@ -186,6 +198,11 @@ body.dark #btn-darkmode {
 }
  
 body.dark #btn-darkmode:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+
+body.dark .header-derecha #modificar{
     background-color: #f0f0f0;
     color: #111;
 }

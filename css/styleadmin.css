@@ -81,7 +81,7 @@ header {
 
 .header-derecha #modificar{
     padding: 0.4rem 1.2rem;
-    border: 2px solid #000000;
+    border: #666;
     border-radius: 20px;
     background: transparent;
     cursor: pointer;
@@ -95,6 +95,7 @@ header {
 #boton-logout {
     padding: 0.4rem 1.2rem;
     background-color: #333;
+    border: #666;
     color: white;
     border: none;
     border-radius: 20px;
@@ -108,11 +109,12 @@ header {
     background-color: #555;
 }
 
+
 .header-nav ul a  {
     padding: 10px 24px;
     padding-top: 14px;
     padding-bottom: 14px;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -123,6 +125,7 @@ header {
     gap: 40px;
     padding: 10px 24px;
 }
+
 
 /*MAIN*/
 
@@ -138,6 +141,18 @@ main {
     margin-bottom: 1.3rem;
     margin-bottom: 1.2rem;
     color: #111;
+}
+
+#cancelar {
+    padding: 0.4rem 1.2rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: Georgia, serif;
 }
 
 #createnoticia, #editnoticia, #deletenoticia {
@@ -336,6 +351,15 @@ body.dark #boton-logout {
 body.dark header nav a:hover,
 body.dark #boton-logout:hover {
     background-color: #666;
+}
+
+body.dark .header-nav ul a {
+    background: transparent;
+}
+
+body.dark .header-derecha #modificar{
+    background-color: #444;
+    color: #fffefe;
 }
  
 body.dark #btn-darkmode {

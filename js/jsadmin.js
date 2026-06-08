@@ -26,6 +26,7 @@ function crearnoticia() {
 
     const boton= document.getElementById("guardar")
     const botoncancelar = document.getElementById("cancelar")
+    botoncancelar.style.display = "block"
 
     botoncancelar.addEventListener("click", () => {location.reload()})
 
