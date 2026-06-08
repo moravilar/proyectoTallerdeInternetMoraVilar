@@ -362,3 +362,7 @@ body.dark .noticia p {
         display: none;
     }
 }
+
+#cancelar {
+    display:none
+}
