@@ -17,6 +17,7 @@ async function logindeladmin(username, password) {
             sessionStorage.setItem("token", datos.accessToken) // guardo el token en sessionStorage para usarlo en otras paginas
             sessionStorage.setItem("usuario", datos.username)
             window.location.href = "admin.html" // mando al admin a su panel
+            
         } else {
             alert("usuario o contraseña incorrectos")
         }
@@ -65,9 +66,11 @@ if (btnVerPass) {
 }
 // index.html: mostrar el botón correcto según si hay sesión activa
 const linkIniciar = document.getElementById("link-iniciar")
+const botonmodificar = document.getElementById("modificar")
 if (linkIniciar) {
     if (sessionStorage.getItem("token")) {
         linkIniciar.style.display = "none"
+        botonmodificar.style.display = "block"
         if (boton_log_out) boton_log_out.style.display = "inline-block"
     }
 }

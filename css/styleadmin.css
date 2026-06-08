@@ -78,6 +78,18 @@ header {
     background-color: #333;
     color: white;
 }
+
+.header-derecha #modificar{
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: #000000;
+    text-decoration: none;
+}
  
 /* cerrar sesión — mismo estilo que el link de "Iniciar sesión" en index */
 #boton-logout {
@@ -94,6 +106,22 @@ header {
  
 #boton-logout:hover {
     background-color: #555;
+}
+
+.header-nav ul a  {
+    padding: 10px 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 24px;
 }
 
 /*MAIN*/
