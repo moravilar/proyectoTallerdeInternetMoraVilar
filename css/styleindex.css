@@ -2,21 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: Georgia, serif;
 }
 body {
-    font-family: sans-serif;
+    font-family: Georgia, serif;
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
 }
- 
 /*HEADER*/
- 
+/*Header con Flexbox: display: flex + justify-content: space-between reparten las 3 cajas del header (izquierda, logo centrado, derecha).*/ 
 header {
     width: 100%;
 }
  
-/*Fila superior: hamburguesa | logo | acciones */
+/* aca estan todos lo elemento que aparecen en el header */
 .header-top {
-    display: flex;
+    display: flex; /*convierto el contenedor en una caja flexible, los elementos se ordenan en filas o columnas, segun se disponga*/
     align-items: center;
     justify-content: space-between;
     padding: 14px 24px;
@@ -32,7 +34,7 @@ header {
 }
  
 .header-derecha {
-    justify-content: flex-end;
+    justify-content: flex-end; /*manda todos los elementos a la derecha*/
 }
  
 .header-logo {
@@ -40,7 +42,7 @@ header {
     text-align: center;
 }
  
-/* Botón hamburguesa */
+/* boton d hamburguesa, aca adentro vendria a estar un menu desplegable que muestra un par de cosas que mejorarian la navegacion de la pagina si fuese verdaderamente de noticias */
 .btn-hamburguesa {
     background: none;
     border: none;
@@ -51,19 +53,35 @@ header {
     flex-shrink: 0;
 }
  
-/* Los elementos dentro de header-derecha no se hacen bloque */
-.header-derecha button,
-.header-derecha a {
+/*los elementos dentro de header-derecha no se hacen bloque */
+.header-derecha button {
     white-space: nowrap;
     display: inline-block;
 }
- 
-/* Fila de navegación */
+
+.header-derecha #link-home{
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: #000000;
+    text-decoration: none;
+}
+/* esto es lo del nav donde aparecen atajos para moverte por la pagina, es mas o menos como el menu de hamburguesa */
 .header-nav {
     border-top: 1px solid #ccc;
 }
+.header-nav ul a  { /*son las secciones de la página; gracias a esto se ven de color negro*/
+    padding: 10px 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    color: #000000;
+}
  
-.header-nav ul {
+.header-nav ul { /*gracias a esto se ve la disposicion en forma de fila*/
     display: flex;
     list-style: none;
     justify-content: center;
@@ -78,172 +96,373 @@ header {
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
- 
-/*MOBILE: menú hamburguesa*/
-@media (max-width: 768px) {
-    .header-nav {
-        display: none;
-    }
- 
-    .header-nav.abierto {
-        display: block;
-    }
- 
-    .header-nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        align-items: stretch;
-    }
- 
-    .header-nav ul li a {
-        display: block;
-        padding: 12px 24px;
-        border-bottom: 1px solid #eee;
-    }
+header .header-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    font-family: Georgia, serif;
 }
- 
+.header-nav .Modificar{
+    display:none;
+}
+/* boton de modo obscuro, diseño/como se ve*/
+#btn-darkmode {
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+/*le agrego un hover para que se vea mas interactivo, al pasar el mouse por encima cambia el fondo y el texto*/
+#btn-darkmode:hover {
+    background-color: #333;
+    color: white;
+}
+/*algo parecido hago para el boton del login*/
+.header-derecha #boton-logout {
+    padding: 0.4rem 1.2rem;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+/*tambien le pongo hover para que se vea intercativo*/
+.header-derecha #boton-logout:hover {
+    background-color: #333;
+}
+
+#link-iniciar { /*esto esta definido dentro del js, no en el index. Dado que esta vinculado con el index podemos modificar con css*/
+    padding: 0.4rem 1.2rem;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#link-iniciar:hover {
+    background-color: #333;
+}
+
+#modificar{
+        padding: 0.4rem 1.2rem;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#modificar:hover {
+    background-color: #333;
+}
+
 /*MAIN*/
 main {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 24px;
 }
- 
-/*COTIZACIONES*/
+main h2 {
+    text-align: left;
+    margin:auto 0 24px;
+    padding: auto;
+}
+.cot-oficial {
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);  
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+.cot-blue { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+.cot-euro-oficial{ 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+.cot-euro-blue { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+
+/*lo que hice aca son "cajas" que separan visualmente cada contizacion.*/
+
+/*esto vendria a ser la disposicion de las cotizaciones, 4 por fila, con un espacio entre ellas*/
+
 #cotizaciones {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+    margin-bottom: 32px;
 }
- 
-@media (max-width: 900px) {
-    #cotizaciones { grid-template-columns: repeat(2, 1fr); }
+
+/* formulario histórico */
+#fecha {
+    padding: 0.5rem 1rem;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
 }
- 
-@media (max-width: 500px) {
-    #cotizaciones { grid-template-columns: 1fr; }
+
+#formulario button[type="submit"] {
+    padding: 0.5rem 1.2rem;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+#formulario button[type="submit"]:hover {
+    background-color: #000000;
+}
+
+/* cajitas del resultado histórico */
+#formulario {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.resultado-historico {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.hist-oficial, .hist-blue {
+    flex: 1;
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.hist-oficial { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%); 
+}
+
+.hist-blue { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%); 
+}
+
+/* para que se vean bien los textos sobre las cajitas*/
+.hist-oficial h3, .hist-blue h3, .hist-euro-oficial h3, .hist-euro-blue h3, .hist-blue p, .hist-oficial p, .hist-euro-oficial p, .hist-euro-blue p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #000000;
 }
  
 /*NOTICIAS*/
-.noticias {
-    margin-top: 32px;
-}
- 
-#buscadorxtitulo {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    padding: 8px 12px;
-    margin: 12px 0 20px;
-}
- 
-/*
-   Grilla de 6 columnas iguales:
-   noticia 1 → columnas 1-4, filas 1-2  (la destacada)
-   noticia 2 → columnas 5-6, fila 1     (sidebar arriba)
-   noticia 3 → columnas 5-6, fila 2     (sidebar abajo)
-   noticias 4-6 → 2 columnas cada una, fila 3
-   noticias 7-9 → 2 columnas cada una, fila 4 (vacías / nuevas)
-*/
+/* grid de noticias — 3 por fila */
 .ubicacion-noticias {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
- 
-/* Todas las imágenes: no se deforman */
-.noticia img {
-    width: 100%;
-    object-fit: cover;
-    display: block;
-}
- 
-/* Todos los títulos: simples, sin overlay */
-.noticia h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.4;
-    margin-top: 8px;
-}
- 
-.noticia p {
-    font-size: 0.85rem;
-    margin-top: 4px;
-    line-height: 1.5;
-}
- 
-/* Esto vendria a ser todo lo de la noticia mas grande */
-.ubicacion-noticias .noticia:nth-child(1) {
-    grid-column: 1 / 5;
-    grid-row: 1 / 3;
+
+/* tarjeta individualpara cada noticia, asi se nota una separación y queda mas ordenado visualmente*/
+.noticia {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.noticia:hover {
+    transform: scale(1.03);
+}
+
+.noticia h3 {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+}
+
+.noticia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* recorta la imagen para que llene sin deformarse */
+}
+
+.noticia p {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    line-height: 1.5;
+}
+
+/* es el diseño visual del buscador, nada loco lo hice ya que es algo secundarios*/
+
+#buscadorxtitulo {
+    padding: 0.5rem 1rem;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
  
-.ubicacion-noticias .noticia:nth-child(1) img {
-    flex: 1;           /* crece para ocupar el alto que determinan las noticias 2 y 3 */
-    min-height: 200px;
+/*DarkMode*/ /*Aca basicamente lo unico que hacemos es cambiar el estilo de la pagina para que sea mas oscura, las cosas que hicimos en general no hace falta volver a ponerlas (ponele un hover no hace falta volver a ponerlo su ya el botoncito orginal del tema claro lo hace de por si)*/
+
+body.dark {
+    background-color: #111;
+    color: #f0f0f0;
 }
- 
-.ubicacion-noticias .noticia:nth-child(1) h3 {
-    font-size: 1.1rem; /* un poco mas grande por ser la principal */
+
+body.dark header {
+    background-color: #1a1a1a;
 }
- 
-/* las noticias del costadito */
-.ubicacion-noticias .noticia:nth-child(2) {
-    grid-column: 5 / 7;
-    grid-row: 1;
+
+body.dark .header-nav {
+    border-top-color: #000000;
 }
- 
-.ubicacion-noticias .noticia:nth-child(3) {
-    grid-column: 5 / 7;
-    grid-row: 2;
+
+body.dark .header-nav a,
+body.dark .header-nav ul a {
+    color: #f0f0f0;
 }
- 
-.ubicacion-noticias .noticia:nth-child(2) img,
-.ubicacion-noticias .noticia:nth-child(3) img {
-    height: 155px;
+
+body.dark .header-logo {
+    color: #f0f0f0;
 }
- 
-/* las noticias de abajo */
-.ubicacion-noticias .noticia:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
-.ubicacion-noticias .noticia:nth-child(5) { grid-column: 3 / 5; grid-row: 3; }
-.ubicacion-noticias .noticia:nth-child(6) { grid-column: 5 / 7; grid-row: 3; }
- 
-.ubicacion-noticias .noticia:nth-child(n+4):nth-child(-n+6) {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
+
+body.dark .btn-hamburguesa {
+    color: #f0f0f0;
 }
- 
-.ubicacion-noticias .noticia:nth-child(n+4):nth-child(-n+6) img {
-    width: 250px;
-    height: 105px;
-    flex-shrink: 0;
-} 
- 
-/*Responsive noticias*/
-@media (max-width: 900px) {
-    .noticias-fila-top {
-        grid-template-columns: 1fr;
+
+body.dark #btn-darkmode {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+
+body.dark #btn-darkmode:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+
+body.dark .header-derecha a {
+    background-color: #000000;
+}
+
+body.dark .header-derecha a:hover {
+    background-color: #000000;
+}
+
+/* cotizaciones actuales */
+body.dark .cot-oficial,
+body.dark .cot-blue,
+body.dark .cot-euro-oficial,
+body.dark .cot-euro-blue {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+}
+
+/* formulario histórico */
+body.dark #formulario {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+}
+
+body.dark #fecha {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #000000;
+}
+
+body.dark #formulario button[type="submit"] {
+    background-color: #000000;
+}
+
+body.dark #formulario button[type="submit"]:hover {
+    background-color: #000000;
+}
+
+/* resultado histórico */
+body.dark .hist-oficial,
+body.dark .hist-blue,
+body.dark .hist-euro-oficial,
+body.dark .hist-euro-blue {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+}
+
+body.dark .hist-oficial h3, body.dark .hist-blue h3,
+body.dark .hist-euro-oficial h3, body.dark .hist-euro-blue h3,
+body.dark .hist-oficial p, body.dark .hist-blue p,
+body.dark .hist-euro-oficial p, body.dark .hist-euro-blue p {
+    color: #f0f0f0;
+}
+
+/* noticias */
+body.dark .noticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .noticia h3 {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+}
+
+body.dark .noticia p {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #ccc;
+}
+
+/* buscador */
+body.dark #buscadorxtitulo {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+/* en pantallas chicas: nav oculto, aparece con el hamburguesa */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
     }
-    .noticias-sidebar {
-        flex-direction: row;
-    }
-    .noticias-fila-bottom {
-        grid-template-columns: repeat(2, 1fr);
+    .header-nav.nav-abierto {
+        display: block;
     }
 }
- 
-@media (max-width: 600px) {
-    .noticias-fila-bottom {
-        grid-template-columns: 1fr;
-    }
-    .noticia-horizontal {
-        flex-direction: column;
-    }
-    .noticia-horizontal img {
-        width: 100%;
-        height: 180px;
+
+/* en pantallas grandes: hamburguesa oculto, nav siempre visible */
+@media (min-width: 769px) {
+    .btn-hamburguesa {
+        display: none;
     }
 }
- 

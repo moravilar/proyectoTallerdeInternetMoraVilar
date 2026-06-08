@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+}
+ 
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+}
+ 
+/* header, lo que hice fue adaptar el header del index para que quede bien en el admin, es decir, con el boton de cerrar sesion y el de darkmode. No sali de lo que ya hice en el index */
+header {
+    width: 100%;
+}
+ 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+}
+ 
+.header-izquierda,
+.header-derecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    flex-wrap: nowrap;
+}
+ 
+.header-derecha {
+    justify-content: flex-end;
+}
+ 
+.header-logo {
+    flex: 2;
+    text-align: center;
+}
+ 
+.header-logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    font-family: Georgia, serif;
+}
+ 
+.btn-hamburguesa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 4px;
+    flex-shrink: 0;
+}
+ 
+.header-derecha button,
+.header-derecha a {
+    white-space: nowrap;
+    display: inline-block;
+}
+ 
+#btn-darkmode {
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+ 
+#btn-darkmode:hover {
+    background-color: #333;
+    color: white;
+}
+
+.header-derecha #modificar{
+    padding: 0.4rem 1.2rem;
+    border: #666;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: #000000;
+    text-decoration: none;
+}
+ 
+/* cerrar sesión — mismo estilo que el link de "Iniciar sesión" en index */
+#boton-logout {
+    padding: 0.4rem 1.2rem;
+    background-color: #333;
+    border: #666;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: Georgia, serif;
+}
+ 
+#boton-logout:hover {
+    background-color: #555;
+}
+
+
+.header-nav ul a  {
+    padding: 10px 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 24px;
+}
+
+
+/*MAIN*/
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* el card de cambios es el que contiene los botones para crear, editar y eliminar noticias */
+
+.cardcambios h2 {
+    margin-bottom: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: #111;
+}
+
+#cancelar {
+    padding: 0.4rem 1.2rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: Georgia, serif;
+}
+
+#createnoticia, #editnoticia, #deletenoticia {
+    padding: 0.5rem 1.4rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 6px;
+}
+
+#createnoticia {
+    background-color: #333;
+    color: white;
+}
+
+#createnoticia:hover {
+    background-color: #111;
+}
+
+#editnoticia {
+    background: white;
+    color: #333;
+    border: 2px solid #333;
+}
+
+#editnoticia:hover {
+    background-color: #e1e8fa;
+}
+
+#deletenoticia {
+    background: transparent;
+    color: #c0392b;
+    border: 2px solid #c0392b;
+}
+
+#deletenoticia:hover {
+    background-color: #c0392b;
+    color: white;
+}
+
+/*esta parte es el car de editar noticias y crear. es un card con los formularios para editar la noticia*/
+.form-noticia {
+    max-width: 480px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+ 
+.form-noticia input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+    background: #fafafa;
+    transition: all 0.2s;
+}
+ 
+.form-noticia input:focus {
+    outline: none;
+    border-color: #333;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+ 
+.form-noticia input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+ 
+#guardar {
+    margin-top: 0.5rem;
+    padding: 0.7rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+ 
+#guardar:hover {
+    background-color: #111; 
+}
+
+/* aca esta el diseño posta de los botones de editar y eliminar noticia, los puse dentro de cada card de noticia para que quede mas claro a que noticia se refiere cada boton, y les puse un icono para que sea mas visual */
+
+.lapiz, .tachito { /*bueno al final no le puse los emojis porque se me iban a ver muy grandes y no supe ponerlos mas chicos*/
+    margin-top: auto;   /* esto lo fija abajo */
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.lapiz:hover { 
+    background-color: #555; 
+}
+ 
+.tachito:hover { 
+    background-color: #e74c3c; 
+}
+ 
+/* esto hace que para el admin se mas facil buscar noticias en el caso que haya muchas, por eso lo dejamos*/
+#buscadorxtitulo {
+    padding: 0.5rem 1rem;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    margin-bottom: 1rem;
+    display: block;
+}
+ 
+/* las noticias se ven exactamente igual que en el index, el mismo orden y todo */
+.ubicacion-noticias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+ 
+.noticia {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+ 
+.noticia:hover {
+    transform: scale(1.03);
+}
+ 
+.noticia h3 {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+}
+ 
+.noticia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /*para que la imagen no se deforme y se ajuste respecto al espacio que hay*/
+}
+ 
+.noticia p {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+}
+ 
+/* darkmode FALTA AGREGAR LO DEL MODOD OBSC_UTO DE LO N_UVOVOVOVOVO*/
+body.dark {
+    background-color: #111;
+    color: #f0f0f0;
+}
+ 
+body.dark header {
+    background-color: #1a1a1a;
+    border-bottom-color: #444;
+}
+ 
+body.dark header h1 {
+    color: #f0f0f0;
+}
+ 
+body.dark header nav a,
+body.dark #boton-logout {
+    background-color: #444;
+}
+ 
+body.dark header nav a:hover,
+body.dark #boton-logout:hover {
+    background-color: #666;
+}
+
+body.dark .header-nav ul a {
+    background: transparent;
+}
+
+body.dark .header-derecha #modificar{
+    background-color: #444;
+    color: #fffefe;
+}
+ 
+body.dark #btn-darkmode {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+ 
+body.dark #btn-darkmode:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+ 
+body.dark #editnoticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border-color: #555;
+}
+ 
+body.dark #buscadorxtitulo {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+ 
+body.dark .noticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+ 
+body.dark .noticia h3 {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+}
+ 
+body.dark .noticia p {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #ccc;
+}
+/* en pantallas chicas: nav oculto, aparece con el hamburguesa */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    .header-nav.nav-abierto {
+        display: block;
+    }
+}
+
+/* en pantallas grandes: hamburguesa oculto, nav siempre visible */
+@media (min-width: 769px) {
+    .btn-hamburguesa {
+        display: none;
+    }
+}
+
+#cancelar {
+    display:none
+}
