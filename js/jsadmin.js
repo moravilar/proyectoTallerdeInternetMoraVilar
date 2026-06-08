@@ -5,16 +5,29 @@ const botoncrear = document.getElementById("createnoticia")
 const botoneditar = document.getElementById("editnoticia")
 const botoneliminar = document.getElementById("deletenoticia")
 
+let modoactual = null
+
 function crearnoticia() {
+    if (modoactual === "crear") return
+    if (modoactual !== null) {
+        alert("Ya estás realizando una acción, guardá o recargá la página")
+        return
+    }
+    modoactual = "crear"
+
     contenedor.innerHTML = `
     <article class="noticia form-noticia">
         <input id="titulo" placeholder="Título de la noticia">
         <input id="imagen" placeholder="Link de la imagen">
         <input id="desc" placeholder="Descripción de la noticia">
         <button id="guardar">Guardar</button>
+        <button id="cancelar">Cancelar</button>
     </article>`
 
     const boton= document.getElementById("guardar")
+    const botoncancelar = document.getElementById("cancelar")
+
+    botoncancelar.addEventListener("click", () => {location.reload()})
 
     boton.addEventListener("click", function() {
     const imagennoticia= document.getElementById("imagen").value
@@ -45,6 +58,18 @@ function crearnoticia() {
 }
 
 function editarnoticia() {
+    if (modoactual === "editar") return
+    if (modoactual !== null) {
+        alert("Ya estás realizando una acción, guardá o recargá la página")
+        return
+    }
+    modoactual = "editar"
+
+    const botoncancelar = document.getElementById("cancelar")
+    botoncancelar.style.display = "block"
+
+    botoncancelar.addEventListener("click", () => {location.reload()})
+
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
         <article class="noticia">
@@ -61,10 +86,10 @@ function editarnoticia() {
         botones[i].addEventListener("click", function(){
 
             let iddelboton = botones[i].getAttribute("id")  
-            let noticiaaeditar = String          
+            let noticiaaeditar
             for (let a = 0; a < noticias.length; a++) {
-            if (noticias[a].id == iddelboton) {
-            noticiaaeditar = noticias[a]}}
+                if (noticias[a].id == iddelboton) {
+                noticiaaeditar = noticias[a]}}
 
             contenedor.innerHTML = `
             <article class="form-noticia">
@@ -73,6 +98,7 @@ function editarnoticia() {
                 <input id="desc" placeholder="${noticiaaeditar.descripcion}">
                 <button id="guardar">Guardar</button>
             </article>`
+
             const boton= document.getElementById("guardar")
 
             boton.addEventListener("click", function() {
@@ -92,6 +118,18 @@ function editarnoticia() {
 })})}    
 
 function eliminarnoticia(){
+    if (modoactual === "eliminar") return
+    if (modoactual !== null) {
+        alert("Ya estás realizando una acción, guardá o recargá la página")
+        return
+    }
+    modoactual = "eliminar"
+
+    const botoncancelar = document.getElementById("cancelar")
+    botoncancelar.style.display = "block"
+
+    botoncancelar.addEventListener("click", () => {location.reload()})
+
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
         <article class="noticia">
@@ -103,21 +141,25 @@ function eliminarnoticia(){
     }).join("")
 
     const botones=document.querySelectorAll(".tachito")
-    for (let i = 0; i < noticias.length; i ++)
-        botones[i].addEventListener("click", function(){
+    for (let i = 0; i < noticias.length; i ++) {
+        let iddelboton = botones[i].getAttribute("id") //guardo el id de cada boton
 
-            let iddelboton = botones[i].getAttribute("id")  
-            let noticiaaeliminar = String          
-            for (let a = 0; a < noticias.length; a++) {
-                if (noticias[a].id == iddelboton) {
-                    noticiaaeliminar = noticias[a]}}
-
-            if(confirm("Deseas eliminar esta noticia? Esta accion es irreversible.")) {noticias.splice((noticiaaeliminar.id)-1, 1)};
+        botones[i].addEventListener("click", function(){ //para cada boton de cada noticia le agrega lo que hace cuando click
+            if(confirm("Deseas eliminar esta noticia? Esta accion es irreversible.")) 
+                //si te dice aceptar al confirm, busca la noticia que su id es la del boton, entonces guarda su indice
+                // para despues hacer splice
+                {function obtenerindice() {
+                    let indice = 0
+                    for (let a = 0; a < noticias.length; a++) {
+                        if (noticias[a].id == iddelboton) {
+                            indice = a
+                            break}}
+                    return indice}
+                    noticias.splice(obtenerindice(), 1)
+                    localStorage.setItem("noticias", JSON.stringify(noticias));};
             
-            localStorage.setItem("noticias", JSON.stringify(noticias));
             location.reload()
-        })
-
+        })}
 }
 
 
