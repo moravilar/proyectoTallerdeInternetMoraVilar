@@ -7,12 +7,12 @@ const botoneliminar = document.getElementById("deletenoticia")
 
 function crearnoticia() {
     contenedor.innerHTML = `
-    <article class="noticia">
-        <h3><input id="titulo" placeholder="Titulo de la noticia"></h3>
-        <input id="imagen" placeholder="Link de la imagen de la noticia">
-        <p><input id="desc" placeholder="Descripción de la noticia"></p>
-    </article>
-    <button id="guardar">Guardar</button>`
+    <article class="noticia form-noticia">
+        <input id="titulo" placeholder="Título de la noticia">
+        <input id="imagen" placeholder="Link de la imagen">
+        <input id="desc" placeholder="Descripción de la noticia">
+        <button id="guardar">Guardar</button>
+    </article>`
 
     const boton= document.getElementById("guardar")
 
@@ -51,7 +51,7 @@ function editarnoticia() {
             <h3>${noticia.titulo}</h3>
             <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <p>${noticia.descripcion}</p>
-            <button class="lapiz" id="${noticia.id}"><img src=""></button>
+            <button class="lapiz" id="${noticia.id}">Editar</button>
         </article>`
     }).join("")
 
@@ -67,12 +67,12 @@ function editarnoticia() {
             noticiaaeditar = noticias[a]}}
 
             contenedor.innerHTML = `
-            <article class="noticia">
-            <h3><input id="titulo" placeholder="${noticiaaeditar.titulo}"></h3>
-            <input id="imagen" placeholder="${noticiaaeditar.imagen}">
-            <p><input id="desc" placeholder="${noticiaaeditar.descripcion}"></p>
-            </article>
-            <button id="guardar">Guardar</button>`
+            <article class="form-noticia">
+                <input id="titulo" placeholder="${noticiaaeditar.titulo}">
+                <input id="imagen" placeholder="${noticiaaeditar.imagen}">
+                <input id="desc" placeholder="${noticiaaeditar.descripcion}">
+                <button id="guardar">Guardar</button>
+            </article>`
             const boton= document.getElementById("guardar")
 
             boton.addEventListener("click", function() {
@@ -98,7 +98,7 @@ function eliminarnoticia(){
             <h3>${noticia.titulo}</h3>
             <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <p>${noticia.descripcion}</p>
-            <button class="tachito" id="${noticia.id}"><img src=""></button>
+            <button class="tachito" id="${noticia.id}">Eliminar</button>
         </article>`
     }).join("")
 

@@ -95,62 +95,141 @@ header {
 #boton-logout:hover {
     background-color: #555;
 }
- 
-/* MAIN */
+
+/*MAIN*/
+
 main {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
- 
-main h2 {
-    text-align: left;
-    margin-bottom: 16px;
-    margin-top: 24px;
+
+/* el card de cambios es el que contiene los botones para crear, editar y eliminar noticias */
+
+.cardcambios h2 {
+    margin-bottom: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: #111;
 }
- 
-/* SECCIÓN CRUD — los tres botones para que el admin cree, elimine o edite una noticia. esta parte hay que hacerla todavia, si tocas los botones no hacen nada, pero el diseño ya lo dejo listo para que funcionen despues */
-#createnoticia,
-#editnoticia,
-#deletenoticia {
+
+#createnoticia, #editnoticia, #deletenoticia {
     padding: 0.5rem 1.4rem;
     border: none;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-family: Georgia, serif;
     cursor: pointer;
     transition: all 0.2s;
-    margin-right: 8px;
+    margin: 0 6px;
 }
- 
+
 #createnoticia {
     background-color: #333;
     color: white;
 }
- 
+
 #createnoticia:hover {
     background-color: #111;
 }
- 
+
 #editnoticia {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    background: white;
     color: #333;
     border: 2px solid #333;
 }
- 
+
 #editnoticia:hover {
     background-color: #e1e8fa;
 }
- 
+
 #deletenoticia {
     background: transparent;
     color: #c0392b;
     border: 2px solid #c0392b;
 }
- 
+
 #deletenoticia:hover {
     background-color: #c0392b;
     color: white;
+}
+
+/*esta parte es el car de editar noticias y crear. es un card con los formularios para editar la noticia*/
+.form-noticia {
+    max-width: 480px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+ 
+.form-noticia input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: Georgia, serif;
+    background: #fafafa;
+    transition: all 0.2s;
+}
+ 
+.form-noticia input:focus {
+    outline: none;
+    border-color: #333;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+ 
+.form-noticia input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+ 
+#guardar {
+    margin-top: 0.5rem;
+    padding: 0.7rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+ 
+#guardar:hover {
+    background-color: #111; 
+}
+
+/* aca esta el diseño posta de los botones de editar y eliminar noticia, los puse dentro de cada card de noticia para que quede mas claro a que noticia se refiere cada boton, y les puse un icono para que sea mas visual */
+
+.lapiz, .tachito { /*bueno al final no le puse los emojis porque se me iban a ver muy grandes y no supe ponerlos mas chicos*/
+    margin-top: auto;   /* esto lo fija abajo */
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.lapiz:hover { 
+    background-color: #555; 
+}
+ 
+.tachito:hover { 
+    background-color: #e74c3c; 
 }
  
 /* esto hace que para el admin se mas facil buscar noticias en el caso que haya muchas, por eso lo dejamos*/
@@ -196,7 +275,7 @@ main h2 {
 .noticia img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /*para que la imagen no se deforme y se ajuste respecto al espacio que hay*/
 }
  
 .noticia p {
@@ -206,7 +285,7 @@ main h2 {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
 }
  
-/* darkmode*/
+/* darkmode FALTA AGREGAR LO DEL MODOD OBSC_UTO DE LO N_UVOVOVOVOVO*/
 body.dark {
     background-color: #111;
     color: #f0f0f0;
