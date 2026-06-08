@@ -103,15 +103,13 @@ function editarnoticia() {
             const boton= document.getElementById("guardar")
 
             boton.addEventListener("click", function() {
-                const imagennoticia= document.getElementById("imagen").value
-                const titulonoticia= document.getElementById("titulo").value
-                const descnoticia= document.getElementById("desc").value
+                let titulonoticia= document.getElementById("titulo").value
+                let descnoticia= document.getElementById("desc").value
+                let imagennoticia= document.getElementById("imagen").value
 
-
-                //ACA ME TENGO Q PONER A LABURARRR (morita)
-                if (!titulonoticia || !descnoticia || !imagennoticia) {
-                alert("Por favor, completar todos los campos")
-                return}
+                if (!titulonoticia) {titulonoticia = noticiaaeditar.titulo}
+                if (!descnoticia) {descnoticia = noticiaaeditar.descripcion}
+                if (!imagennoticia) {imagennoticia = noticiaaeditar.imagen}
             
                 noticiaaeditar.titulo = titulonoticia
                 noticiaaeditar.descripcion = descnoticia
@@ -164,7 +162,6 @@ function eliminarnoticia(){
             location.reload()
         })}
 }
-
 
 botoneditar.addEventListener("click", editarnoticia)
 botoncrear.addEventListener("click", crearnoticia)
