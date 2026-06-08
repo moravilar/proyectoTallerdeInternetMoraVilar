@@ -58,7 +58,18 @@ header {
     white-space: nowrap;
     display: inline-block;
 }
- 
+
+.header-derecha #link-home{
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: #000000;
+    text-decoration: none;
+}
 /* esto es lo del nav donde aparecen atajos para moverte por la pagina, es mas o menos como el menu de hamburguesa */
 .header-nav {
     border-top: 1px solid #ccc;
@@ -90,6 +101,9 @@ header .header-logo a {
     font-weight: 700;
     color: #000000;
     font-family: Georgia, serif;
+}
+.header-nav .Modificar{
+    display:none;
 }
 /* boton de modo obscuro, diseño/como se ve*/
 #btn-darkmode {
