@@ -66,7 +66,7 @@ header {
  
 #btn-darkmode {
     padding: 0.4rem 1.2rem;
-    border: 2px solid #333;
+    border: 2px solid #000000;
     border-radius: 20px;
     background: transparent;
     cursor: pointer;
@@ -75,26 +75,31 @@ header {
 }
  
 #btn-darkmode:hover {
-    background-color: #333;
+    background-color: #000000;
     color: white;
 }
 
-.header-derecha #modificar{
+.header-derecha #link-home{
     padding: 0.4rem 1.2rem;
-    border: #666;
+    border:#666;
     border-radius: 20px;
-    background: transparent;
+    background: #000000;
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.2s;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
+}
+
+#link-home:hover {
+    background-color: #ffffff;
+    color:#000
 }
  
 /* cerrar sesión — mismo estilo que el link de "Iniciar sesión" en index */
 #boton-logout {
     padding: 0.4rem 1.2rem;
-    background-color: #333;
+    background-color: #000000;
     border: #666;
     color: white;
     border: none;
@@ -106,7 +111,8 @@ header {
 }
  
 #boton-logout:hover {
-    background-color: #555;
+    background-color: #ffffff;
+    color:#000
 }
 
 
@@ -145,7 +151,7 @@ main {
 
 #cancelar {
     padding: 0.4rem 1.2rem;
-    background-color: #333;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 20px;
@@ -167,7 +173,7 @@ main {
 }
 
 #createnoticia {
-    background-color: #333;
+    background-color: #000000;
     color: white;
 }
 
@@ -177,12 +183,12 @@ main {
 
 #editnoticia {
     background: white;
-    color: #333;
-    border: 2px solid #333;
+    color: #000000;
+    border: 2px solid #000000;
 }
 
 #editnoticia:hover {
-    background-color: #e1e8fa;
+    background-color: #000000;
 }
 
 #deletenoticia {
@@ -198,31 +204,54 @@ main {
 
 /*esta parte es el car de editar noticias y crear. es un card con los formularios para editar la noticia*/
 .form-noticia {
-    max-width: 480px;
-    margin: 0 auto;
+    grid-column: 1 / -1;
+    max-width: none;
+    margin: 0;
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    padding: 2rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.1rem;
 }
  
 .form-noticia input {
     width: 100%;
-    padding: 0.7rem 1rem;
+    padding: 0.9rem 1.1rem;   /* antes 0.7rem 1rem */
     border: 1.5px solid #ddd;
     border-radius: 10px;
-    font-size: 0.95rem;
+    font-size: 1.05rem;       /* antes 0.95rem */
     font-family: Georgia, serif;
     background: #fafafa;
     transition: all 0.2s;
 }
+
+.form-noticia textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.9rem 1.1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-family: Georgia, serif;
+    background: #fafafa;
+    resize: vertical;       /* la puede estirar a mano si necesita más */
+    transition: all 0.2s;
+}
+.form-noticia textarea:focus {
+    outline: none;
+    border-color: #000000;
+    background: white;
+}
+.form-noticia textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
  
 .form-noticia input:focus {
     outline: none;
-    border-color: #333;
+    border-color: #000000;
     background: white;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
@@ -235,7 +264,7 @@ main {
 #guardar {
     margin-top: 0.5rem;
     padding: 0.7rem;
-    background-color: #333;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 20px;
@@ -265,10 +294,12 @@ main {
     opacity: 0.8;
     transition: all 0.2s;
     background-color: transparent;
+    color: #000000;
 }
 
 .lapiz:hover { 
-    background-color: #555; 
+    background-color: #ffffff; 
+    color: #000000;
 }
  
 .tachito:hover { 
@@ -278,7 +309,7 @@ main {
 /* esto hace que para el admin se mas facil buscar noticias en el caso que haya muchas, por eso lo dejamos*/
 #buscadorxtitulo {
     padding: 0.5rem 1rem;
-    border: 2px solid #333;
+    border: 2px solid #000000;
     border-radius: 8px;
     font-size: 1rem;
     font-family: Georgia, serif;
@@ -398,6 +429,42 @@ body.dark .noticia p {
     background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
     color: #ccc;
 }
+
+body.dark .cardcambios h2 {
+    color: #f0f0f0;
+}
+
+body.dark .form-noticia {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+body.dark .form-noticia input,
+body.dark .form-noticia textarea {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+body.dark .form-noticia input::placeholder,
+body.dark .form-noticia textarea::placeholder {
+    color: #888;
+}
+body.dark .form-noticia input:focus,
+body.dark .form-noticia textarea:focus {
+    background: #333;
+    border-color: #f0f0f0;
+}
+
+body.dark .lapiz, .tachito { 
+    color: #aaa;
+}
+body.dark .lapiz:hover{
+    background-color: #aaa;
+    color: black;
+}
+
+
+
+
 /* en pantallas chicas: nav oculto, aparece con el hamburguesa */
 @media (max-width: 768px) {
     .header-nav {

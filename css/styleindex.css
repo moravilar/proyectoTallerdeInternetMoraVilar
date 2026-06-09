@@ -105,6 +105,71 @@ header .header-logo {
 .header-nav .Modificar{
     display:none;
 }
+
+/* contenedor: oculto por defecto; el JS lo muestra al iniciar sesión */
+#dropdown-perfil {
+    display: none;        /* el JS lo pone en "block" cuando hay token */
+    position: relative;   /* para anclar el menú a este contenedor */
+}
+
+#btn-perfil {
+    padding: 0.4rem 1.2rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: Georgia, serif;
+}
+
+/* el menú: oculto por defecto */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 100;
+}
+
+/* cuando el JS agrega la clase, se muestra */
+.dropdown-menu.dropdown-abierto {
+    display: flex;
+}
+
+.dropdown-link {
+    padding: 0.4rem 0.6rem;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.dropdown-link:hover { background-color: #e1e8fa; }
+
+#saludoUsuario {
+    padding: 0.4rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#botonLogout {
+    padding: 0.4rem 0.6rem;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+}
+
 /* boton de modo obscuro, diseño/como se ve*/
 #btn-darkmode {
     padding: 0.4rem 1.2rem;
@@ -117,7 +182,7 @@ header .header-logo {
 }
 /*le agrego un hover para que se vea mas interactivo, al pasar el mouse por encima cambia el fondo y el texto*/
 #btn-darkmode:hover {
-    background-color: #333;
+    background-color: #000000;
     color: white;
 }
 /*algo parecido hago para el boton del login*/
@@ -132,7 +197,7 @@ header .header-logo {
 }
 /*tambien le pongo hover para que se vea intercativo*/
 .header-derecha #boton-logout:hover {
-    background-color: #333;
+    background-color: #000000;
 }
 
 #link-iniciar { /*esto esta definido dentro del js, no en el index. Dado que esta vinculado con el index podemos modificar con css*/
@@ -367,6 +432,7 @@ body.dark .btn-hamburguesa {
 }
 
 body.dark #btn-darkmode {
+    background-color: #000;
     border-color: #f0f0f0;
     color: #f0f0f0;
 }
@@ -450,6 +516,28 @@ body.dark #buscadorxtitulo {
     color: #f0f0f0;
     border-color: #555;
 }
+
+/* dropdown de perfil en dark */
+body.dark .dropdown-menu {
+    background: #1e1e3a;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+body.dark #saludoUsuario {
+    color: #f0f0f0;
+}
+body.dark .dropdown-link {
+    color: #f0f0f0;
+    background: transparent;   /* anula el #000 que hereda de .header-derecha a */
+}
+body.dark .dropdown-link:hover {
+    background-color: #333;
+}
+body.dark #btn-perfil {
+    background-color: #000000;
+    color: #f0f0f0;
+    border: #f0f0f0 2px solid;
+}
+
 /* en pantallas chicas: nav oculto, aparece con el hamburguesa */
 @media (max-width: 768px) {
     .header-nav {

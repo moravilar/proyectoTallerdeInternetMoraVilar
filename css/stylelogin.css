@@ -88,6 +88,21 @@ header {
     background-color: #333;
     color: white;
 }
+
+.header-derecha #link-home {
+    padding: 0.4rem 1.2rem;
+    border: 2px solid #000;
+    border-radius: 20px;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.header-derecha #link-home:hover {
+    background-color: #333;
+    color: white;
+}
  
 /* el main vendria a ser el padre, posicionamos todo respecto a el. En esta caso es como una carta con bordes redondeados*/
 main {
@@ -244,4 +259,9 @@ body.dark #enviar {
  
 body.dark #enviar:hover {
     background-color: #666;
+}
+
+body.dark .header-derecha #link-home {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
 }

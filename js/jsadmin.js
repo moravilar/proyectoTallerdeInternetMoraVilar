@@ -19,7 +19,7 @@ function crearnoticia() {
     <article class="noticia form-noticia">
         <input id="titulo" placeholder="Título de la noticia">
         <input id="imagen" placeholder="Link de la imagen">
-        <input id="desc" placeholder="Descripción de la noticia">
+        <textarea id="desc" placeholder="Descripción de la noticia"></textarea>
         <button id="guardar">Guardar</button>
         <button id="cancelar">Cancelar</button>
     </article>`
@@ -96,7 +96,7 @@ function editarnoticia() {
             <article class="form-noticia">
                 <input id="titulo" placeholder="${noticiaaeditar.titulo}">
                 <input id="imagen" placeholder="${noticiaaeditar.imagen}">
-                <input id="desc" placeholder="${noticiaaeditar.descripcion}">
+                <textarea id="desc" placeholder="${noticiaaeditar.descripcion}"></textarea>
                 <button id="guardar">Guardar</button>
             </article>`
 

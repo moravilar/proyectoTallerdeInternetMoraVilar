@@ -78,7 +78,7 @@ if (linkIniciar) {
         linkIniciar.style.display = "none"
         dropdownPerfil.style.display = "block"
         const nombre = sessionStorage.getItem("nombre") || sessionStorage.getItem("usuario")
-        document.getElementById("saludo-usuario").textContent = "¡Hola, " + nombre + "!"
+        document.getElementById("saludoUsuario").textContent = "¡Hola, " + nombre + "!"
     }
 }
 
@@ -87,7 +87,10 @@ if (btnPerfil && dropdownMenu) {
         e.stopPropagation() // no dejo q el click no clickee ahre
         dropdownMenu.classList.toggle("dropdown-abierto")
     })
-
+    const botonLogoutDropdown = document.getElementById("botonLogout")
+    if (botonLogoutDropdown) {
+    botonLogoutDropdown.addEventListener("click", log_out)
+}
     //cierro el 'dropdwon' cuando hago click e cualq otro lado
     document.addEventListener("click", function() {
         dropdownMenu.classList.remove("dropdown-abierto")
