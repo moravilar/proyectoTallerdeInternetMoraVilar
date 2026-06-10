@@ -22,7 +22,6 @@
                 <button id="btn-perfil">Perfil ▾</button>
                 <div class="dropdown-menu" id="dropdown-menu">
                     <p id="saludoUsuario"></p>
-                    <button id="botonLogout">Cerrar sesión</button>
                     <a href="admin.html" class="dropdown-link">Modificar noticias</a>
                 </div>
             </div>
@@ -31,42 +30,20 @@
         </div>
     <nav class="header-nav" id="header-nav">
         <ul>
-            <li><a href="#cotizaciones">Última cotización</a></li>
-            <li><a href="#cot-historica">Cotización histórica</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a class="Modificar" id="modificar" href="admin.html">Modificar noticias</a></li>
+            <li><a href="index.html#cotizaciones">Última cotización</a></li>
+            <li><a href="index.html#cot-historica">Cotización histórica</a></li>
+            <li><a href="index.html#noticias">Noticias</a></li>
+            <li><a class="Modificar" href="admin.html">Modificar noticias</a></li>
         </ul>
+    </nav>
     </nav>
 </header>
     <main>
         <h2>Últimas Cotizaciones</h2>
         <section id="cotizaciones">
-            <article id="oficial">
-                <h3 class="tituloscotizaciones"> Dolar Oficial</h3>
-                <p>Valor compra: </p>
-                <p>Valor venta: </p>
-                <p>Valor promedio: </p>
-            </article>
-            <article id="oficial_euro">
-                <h3 class="tituloscotizaciones">Euro</h3>
-                <p>Valor compra: </p>
-                <p>Valor venta: </p>
-                <p>Valor promedio: </p>
-            </article>
-            <article id="blue">
-                <h3 class="tituloscotizaciones">Blue</h3>
-                <p>Valor compra: </p>
-                <p>Valor venta: </p>
-                <p>Valor promedio: </p>
-            </article>
-            <article id="blue_euro">
-                <h3 class="tituloscotizaciones"> Blue Euro</h3>
-                <p>Valor compra: </p>
-                <p>Valor venta: </p>
-                <p>Valor promedio: </p>
-            </article>
+            <p>Cargando cotizaciones...</p>
         </section>
-    <section>
+    <section id="cot-historica">
         <h2> Cotización historica del dolar</h2>
         <form id="formulario">
             <label for="fecha">Elegir una fecha:</label>

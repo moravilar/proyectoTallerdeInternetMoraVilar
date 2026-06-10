@@ -21,7 +21,7 @@ function crearnoticia() {
         <input id="imagen" placeholder="Link de la imagen">
         <textarea id="desc" placeholder="Descripción de la noticia"></textarea>
         <button id="guardar">Guardar</button>
-        <button id="cancelar">Cancelar</button>
+
     </article>`
 
     const boton= document.getElementById("guardar")
@@ -156,10 +156,10 @@ function eliminarnoticia(){
                             indice = a
                             break}}
                     return indice}
-                    noticias.splice(obtenerindice(), 1)
-                    localStorage.setItem("noticias", JSON.stringify(noticias));};
-            
-            location.reload()
+                    noticias.splice(obtenerindice(), 1);
+                    localStorage.setItem("noticias", JSON.stringify(noticias));
+                    location.reload();
+                }
         })}
 }
 
