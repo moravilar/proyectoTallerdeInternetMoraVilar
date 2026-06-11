@@ -74,34 +74,39 @@ header {
     display: inline-block;
 }
  
+/*le agrego un hover para que se vea mas interactivo, al pasar el mouse por encima cambia el fondo y el texto*/
 #btn-darkmode {
     padding: 0.4rem 1.2rem;
-    border: 2px solid #333;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    background: transparent;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 0.9rem;
     transition: all 0.2s;
+    font-family: Georgia, serif;
+    border: none; 
 }
  
 #btn-darkmode:hover {
-    background-color: #333;
-    color: white;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
 
-.header-derecha #link-home {
+.header-derecha #link-home{
     padding: 0.4rem 1.2rem;
-    border: 2px solid #000;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    background: transparent;
-    font-size: 0.9rem;
-    color: #000;
-    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
     transition: all 0.2s;
+    font-family: Georgia, serif;
+    border: none;
+    text-decoration: none;
 }
 .header-derecha #link-home:hover {
-    background-color: #333;
-    color: white;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
  
 /* el main vendria a ser el padre, posicionamos todo respecto a el. En esta caso es como una carta con bordes redondeados*/
@@ -179,19 +184,21 @@ main > p {
 #enviar {
     width: 100%;
     padding: 0.75rem;
-    background-color: #333;
-    color: white;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     font-size: 1rem;
     font-family: Georgia, serif;
     cursor: pointer;
     margin-top: 0.5rem;
-    transition: background 0.2s;
+    transition: 0.2s;
 }
  
 #enviar:hover {
-    background-color: #111;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
+    color: #000;
 }
 /* dark mode */
 body.dark {
@@ -239,8 +246,8 @@ body.dark #form-login label {
     color: #ccc;
 }
  
-body.dark #username, body.dark #password {
-    background-color: #2a2a2a;
+body.dark #username body.dark #password {
+    background: #2a2a2a;
     color: #f0f0f0;
     border-color: #555;
 }
@@ -254,14 +261,42 @@ body.dark #mostrarcontraseña:hover {
 }
  
 body.dark #enviar {
-    background-color: #444;
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border: none;
 }
  
 body.dark #enviar:hover {
-    background-color: #666;
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
 }
 
 body.dark .header-derecha #link-home {
     border-color: #f0f0f0;
     color: #f0f0f0;
+}
+
+body.dark #btn-darkmode {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border: none; 
+}
+ 
+body.dark #btn-darkmode:hover {
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color:white;
+}
+
+body.dark .header-derecha #link-home{
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border: none;
+}
+body.dark .header-derecha #link-home:hover {
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: white;
 }

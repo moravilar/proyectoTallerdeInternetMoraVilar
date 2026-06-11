@@ -4,6 +4,8 @@ let contenedor = document.querySelector(".ubicacion-noticias")
 const botoncrear = document.getElementById("createnoticia")
 const botoneditar = document.getElementById("editnoticia")
 const botoneliminar = document.getElementById("deletenoticia")
+const botoncancelar = document.getElementById("cancelar")
+botoncancelar.style.display = "none"
 
 let modoactual = null
 
@@ -14,7 +16,7 @@ function crearnoticia() {
         return
     }
     modoactual = "crear"
-
+    document.getElementById("buscadorxtitulo").disabled = true
     contenedor.innerHTML = `
     <article class="noticia form-noticia">
         <input id="titulo" placeholder="Título de la noticia">
@@ -59,17 +61,21 @@ function crearnoticia() {
 }
 
 function editarnoticia() {
+    console.log("entro")
     if (modoactual === "editar") return
     if (modoactual !== null) {
         alert("Ya estás realizando una acción, guardá o recargá la página")
         return
     }
     modoactual = "editar"
+    document.getElementById("buscadorxtitulo").disabled = true
 
     const botoncancelar = document.getElementById("cancelar")
+
     botoncancelar.style.display = "block"
 
     botoncancelar.addEventListener("click", () => {location.reload()})
+
 
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
@@ -78,6 +84,7 @@ function editarnoticia() {
             <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <p>${noticia.descripcion}</p>
             <button class="lapiz" id="${noticia.id}">Editar</button>
+
         </article>`
     }).join("")
 
@@ -102,6 +109,7 @@ function editarnoticia() {
 
             const boton= document.getElementById("guardar")
 
+
             boton.addEventListener("click", function() {
                 let titulonoticia= document.getElementById("titulo").value
                 let descnoticia= document.getElementById("desc").value
@@ -125,7 +133,7 @@ function eliminarnoticia(){
         return
     }
     modoactual = "eliminar"
-
+    document.getElementById("buscadorxtitulo").disabled = true
     const botoncancelar = document.getElementById("cancelar")
     botoncancelar.style.display = "block"
 

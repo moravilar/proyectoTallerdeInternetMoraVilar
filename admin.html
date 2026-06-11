@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="css/styleadmin.css">
-    <script>
-        if (!sessionStorage.getItem("token")) {
-            window.location.href = "login.html"
-        }
-    </script>
+
 </head>
 <body>
     <header>
@@ -53,9 +49,16 @@
         <h2>Últimas noticias</h2>
         <br> 
         <input id="buscadorxtitulo" placeholder="Buscar...">
+        <button id="cancelar">Cancelar</button>
         <div class="ubicacion-noticias">
         </div>
     </main>
+
+    <script>
+        if (!sessionStorage.getItem("token")) {
+            window.location.href = "login.html"
+        }
+    </script>
 
     <script src="js/initialNews.js"></script>
     <script src="js/darkmode.js"></script>
