@@ -300,3 +300,74 @@ body.dark .header-derecha #link-home:hover {
     background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
     color: white;
 }
+
+/* en pantallas chicas: nav oculto, aparece con el hamburguesa */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+    }
+    .header-nav.nav-abierto {
+        display: flex;
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul {
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul a {
+        padding: 0;
+    }
+}
+
+/* en pantallas grandes: hamburguesa oculto, nav siempre visible */
+@media (min-width: 769px) {
+    .btn-hamburguesa {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-derecha {
+        flex-wrap: wrap; 
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .header-logo {
+        order: -1;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    #btn-darkmode,
+    #boton-logout,
+    #link-home {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+ @media (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: 1fr;   /* una sola columna en móvil */
+    }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: repeat(2, 1fr);  /* dos columnas en tablet chico */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 0.75rem;
+        margin: 1rem auto;
+    }
+} 

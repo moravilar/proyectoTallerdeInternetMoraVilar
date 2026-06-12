@@ -26,10 +26,10 @@ header {
  
 .header-izquierda,
 .header-derecha {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 12px;
-    flex: 1;
     flex-wrap: nowrap;   /* evita el apilado */
 }
  
@@ -40,6 +40,10 @@ header {
 .header-logo {
     flex: 2;
     text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    font-family: Georgia, serif;
 }
  
 /* boton d hamburguesa, aca adentro vendria a estar un menu desplegable que muestra un par de cosas que mejorarian la navegacion de la pagina si fuese verdaderamente de noticias */
@@ -63,21 +67,7 @@ header {
 .header-nav {
     border-top: 1px solid #ccc;
 }
-.header-nav ul a  { /*son las secciones de la página; gracias a esto se ven de color negro*/
-    padding: 10px 24px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    color: #000000;
-}
- 
-.header-nav ul { /*gracias a esto se ve la disposicion en forma de fila*/
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    gap: 40px;
-    padding: 10px 24px;
-}
- 
+
 .header-nav a {
     text-decoration: none;
     font-weight: 600;
@@ -86,18 +76,26 @@ header {
     text-transform: uppercase;
 }
 
-header .header-logo {
-    font-size: 1.2rem;
-    font-weight: 700;
+.header-nav ul { /*gracias a esto se ve la disposicion en forma de fila*/
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 24px;
+}
+
+.header-nav ul a  { /*son las secciones de la página; gracias a esto se ven de color negro*/
+    padding: 10px 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
     color: #000000;
-    font-family: Georgia, serif;
 }
 
 .header-nav .Modificar{
-    display:none;
+    display:none; /*es para que no se vea en el index comun y solo en el admin*/
 }
 
-
+/* aca estamos en el index del administrador*/
 /* contenedor: oculto por defecto; el JS lo muestra al iniciar sesión */
 #dropdown-perfil {
     display: none;        /* el JS lo pone en "block" cuando hay token */
@@ -184,6 +182,7 @@ header .header-logo {
     background: #E1E8FA;
     background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
+
 /*algo parecido hago para el boton del login*/
 .header-derecha #boton-logout {
     padding: 0.4rem 1.2rem;
@@ -228,38 +227,14 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 24px;
+    
 }
+
 main h2 {
     text-align: left;
     margin:auto 0 24px;
     padding: auto;
 }
-.cot-oficial {
-    background: #ffffff;
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);  
-    padding: 1rem; 
-    border-radius: 8px; 
-}
-.cot-blue { 
-    background: #ffffff;
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
-    padding: 1rem; 
-    border-radius: 8px; 
-}
-.cot-euro-oficial{ 
-    background: #ffffff;
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
-    padding: 1rem; 
-    border-radius: 8px; 
-}
-.cot-euro-blue { 
-    background: #ffffff;
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
-    padding: 1rem; 
-    border-radius: 8px; 
-}
-
-/*lo que hice aca son "cajas" que separan visualmente cada contizacion.*/
 
 /*esto vendria a ser la disposicion de las cotizaciones, 4 por fila, con un espacio entre ellas*/
 
@@ -270,6 +245,36 @@ main h2 {
     margin-bottom: 32px;
 }
 
+.cot-oficial {
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);  
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+
+.cot-blue { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+
+.cot-euro-oficial{ 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+
+.cot-euro-blue { 
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+
+/*lo que hice aca son "cajas" que separan visualmente cada contizacion.*/
+
 /* formulario histórico */
 #fecha {
     padding: 0.5rem 1rem;
@@ -277,6 +282,25 @@ main h2 {
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+/* cajitas del resultado histórico */
+#formulario {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #ffffff;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.resultado-historico {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 #formulario button[type="submit"] {
@@ -297,24 +321,6 @@ main h2 {
     background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
     color: #ffffff;
     transition: all 0.3s ease 0s;
-}
-
-/* cajitas del resultado histórico */
-#formulario {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #ffffff;
-    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(225, 232, 250, 1) 35%, rgba(225, 232, 250, 1) 100%);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-.resultado-historico {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
 }
 
 .hist-oficial, .hist-blue {
@@ -567,7 +573,16 @@ body.dark #link-iniciar:hover {
         display: none;
     }
     .header-nav.nav-abierto {
-        display: block;
+        display: flex;
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul {
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul a {
+        padding: 0;
     }
 }
 
@@ -577,3 +592,48 @@ body.dark #link-iniciar:hover {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-derecha {
+        flex-wrap: wrap; 
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .header-logo {
+        order: -1;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    #btn-darkmode,
+    #boton-logout,
+    #link-home {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+ @media (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: 1fr;   /* una sola columna en móvil */
+    }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: repeat(2, 1fr);  /* dos columnas en tablet chico */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 0.75rem;
+        margin: 1rem auto;
+    }
+} 

@@ -342,7 +342,7 @@ main {
     display: block;
 }
 
-#buscadorxtitulo:disabled {
+#buscadorxtitulo:disabled { /*cuando este creando o editando noticia*/
     opacity: 0.5;
     cursor: not-allowed;
 }
@@ -389,7 +389,7 @@ main {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
 }
  
-/* darkmode FALTA AGREGAR LO DEL MODOD OBSC_UTO DE LO N_UVOVOVOVOVO*/
+/* darkmode*/
 body.dark {
     background-color: #111;
     color: #f0f0f0;
