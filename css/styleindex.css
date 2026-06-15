@@ -9,11 +9,15 @@ body {
     width: 100%;
     min-height: 100vh;
     background: #ffffff;
+    position: relative;
 }
 /*HEADER*/
 /*Header con Flexbox: display: flex + justify-content: space-between reparten las 3 cajas del header (izquierda, logo centrado, derecha).*/ 
 header {
     width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
  
 /* aca estan todos lo elemento que aparecen en el header */
@@ -22,7 +26,6 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 14px 24px;
-    position: sticky;
 }
  
 .header-izquierda,

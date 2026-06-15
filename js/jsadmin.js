@@ -76,7 +76,6 @@ function editarnoticia() {
 
     botoncancelar.addEventListener("click", () => {location.reload()})
 
-
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
         <article class="noticia">
