@@ -6,11 +6,10 @@
     <title>Login</title>
     <link rel="stylesheet" href="css/stylelogin.css">
 </head>
+
 <body>
     <header>
     <div class="header-top">
-        <div class="header-izquierda">
-        </div>
         <div class="header-logo">
             <h1>Portal de Noticias</h1>
         </div>
@@ -19,7 +18,8 @@
             <a href="index.html" id="link-home">Home</a>
         </div>
     </div>
-</header>
+    </header>
+
     <main>
         <h2>Inicio de sesión del Administrador</h2>
         <p> Para poder editar y cargar noticias</p>
@@ -32,11 +32,13 @@
             <br> <button type="submit" id="enviar">Iniciar sesión</button>
         </form>
     </main>
+    
     <script>
         if(sessionStorage.getItem("token")){
             window.location.href = "admin.html"
         }
     </script>
+
     <script src="js/darkmode.js"></script>
     <script src="js/auth.js"></script>
 
