@@ -16,6 +16,7 @@ async function logindeladmin(username, password) {
             // si existe el token es pq las credenciales fueron correctas
             sessionStorage.setItem("token", datos.accessToken) // guardo el token en sessionStorage para usarlo en otras paginas
             sessionStorage.setItem("usuario", datos.username)
+            sessionStorage.setItem("nombre", datos.firstName) //nombre real user
             window.location.href = "admin.html" // mando al admin a su panel
             
         } else {
@@ -31,6 +32,7 @@ async function logindeladmin(username, password) {
 function log_out() {
     sessionStorage.removeItem("token")
     sessionStorage.removeItem("usuario")
+    sessionStorage.removeItem("nombre")
     window.location.href = "index.html" // lo mando al home
 }
 
@@ -65,12 +67,32 @@ if (btnVerPass) {
     })
 }
 // index.html: mostrar el botón correcto según si hay sesión activa
-const linkIniciar = document.getElementById("link-iniciar")
-const botonmodificar = document.getElementById("modificar")
+const linkIniciar    = document.getElementById("link-iniciar")
+const dropdownPerfil = document.getElementById("dropdown-perfil")
+const dropdownMenu   = document.getElementById("dropdown-menu")
+const btnPerfil      = document.getElementById("btn-perfil")
+
+//solo corre en index.html (link-iniciar)
 if (linkIniciar) {
     if (sessionStorage.getItem("token")) {
         linkIniciar.style.display = "none"
-        botonmodificar.style.display = "block"
-        if (boton_log_out) boton_log_out.style.display = "inline-block"
+        dropdownPerfil.style.display = "block"
+        const nombre = sessionStorage.getItem("nombre") || sessionStorage.getItem("usuario")
+        document.getElementById("saludoUsuario").textContent = "¡Hola, " + nombre + "!"
     }
+}
+
+if (btnPerfil && dropdownMenu) {
+    btnPerfil.addEventListener("click", function(e) {
+        e.stopPropagation() // no dejo q el click no clickee ahre
+        dropdownMenu.classList.toggle("dropdown-abierto")
+    })
+    const botonLogoutDropdown = document.getElementById("botonLogout")
+    if (botonLogoutDropdown) {
+    botonLogoutDropdown.addEventListener("click", log_out)
+}
+    //cierro el 'dropdwon' cuando hago click e cualq otro lado
+    document.addEventListener("click", function() {
+        dropdownMenu.classList.remove("dropdown-abierto")
+    })
 }

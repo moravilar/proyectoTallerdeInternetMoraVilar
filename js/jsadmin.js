@@ -4,6 +4,8 @@ let contenedor = document.querySelector(".ubicacion-noticias")
 const botoncrear = document.getElementById("createnoticia")
 const botoneditar = document.getElementById("editnoticia")
 const botoneliminar = document.getElementById("deletenoticia")
+const botoncancelar = document.getElementById("cancelar")
+botoncancelar.style.display = "none"
 
 let modoactual = null
 
@@ -14,14 +16,14 @@ function crearnoticia() {
         return
     }
     modoactual = "crear"
-
+    document.getElementById("buscadorxtitulo").disabled = true
     contenedor.innerHTML = `
     <article class="noticia form-noticia">
         <input id="titulo" placeholder="Título de la noticia">
         <input id="imagen" placeholder="Link de la imagen">
-        <input id="desc" placeholder="Descripción de la noticia">
+        <textarea id="desc" placeholder="Descripción de la noticia"></textarea>
         <button id="guardar">Guardar</button>
-        <button id="cancelar">Cancelar</button>
+
     </article>`
 
     const boton= document.getElementById("guardar")
@@ -59,17 +61,21 @@ function crearnoticia() {
 }
 
 function editarnoticia() {
+    console.log("entro")
     if (modoactual === "editar") return
     if (modoactual !== null) {
         alert("Ya estás realizando una acción, guardá o recargá la página")
         return
     }
     modoactual = "editar"
+    document.getElementById("buscadorxtitulo").disabled = true
 
     const botoncancelar = document.getElementById("cancelar")
+
     botoncancelar.style.display = "block"
 
     botoncancelar.addEventListener("click", () => {location.reload()})
+
 
     contenedor.innerHTML = noticias.map(function(noticia) {
         return `
@@ -78,6 +84,7 @@ function editarnoticia() {
             <img src="${noticia.imagen}" alt="${noticia.titulo}">
             <p>${noticia.descripcion}</p>
             <button class="lapiz" id="${noticia.id}">Editar</button>
+
         </article>`
     }).join("")
 
@@ -96,20 +103,21 @@ function editarnoticia() {
             <article class="form-noticia">
                 <input id="titulo" placeholder="${noticiaaeditar.titulo}">
                 <input id="imagen" placeholder="${noticiaaeditar.imagen}">
-                <input id="desc" placeholder="${noticiaaeditar.descripcion}">
+                <textarea id="desc" placeholder="${noticiaaeditar.descripcion}"></textarea>
                 <button id="guardar">Guardar</button>
             </article>`
 
             const boton= document.getElementById("guardar")
 
-            boton.addEventListener("click", function() {
-                const imagennoticia= document.getElementById("imagen").value
-                const titulonoticia= document.getElementById("titulo").value
-                const descnoticia= document.getElementById("desc").value
 
-                if (!titulonoticia || !descnoticia || !imagennoticia) {
-                alert("Por favor, completar todos los campos")
-                return}
+            boton.addEventListener("click", function() {
+                let titulonoticia= document.getElementById("titulo").value
+                let descnoticia= document.getElementById("desc").value
+                let imagennoticia= document.getElementById("imagen").value
+
+                if (!titulonoticia) {titulonoticia = noticiaaeditar.titulo}
+                if (!descnoticia) {descnoticia = noticiaaeditar.descripcion}
+                if (!imagennoticia) {imagennoticia = noticiaaeditar.imagen}
             
                 noticiaaeditar.titulo = titulonoticia
                 noticiaaeditar.descripcion = descnoticia
@@ -125,7 +133,7 @@ function eliminarnoticia(){
         return
     }
     modoactual = "eliminar"
-
+    document.getElementById("buscadorxtitulo").disabled = true
     const botoncancelar = document.getElementById("cancelar")
     botoncancelar.style.display = "block"
 
@@ -156,13 +164,12 @@ function eliminarnoticia(){
                             indice = a
                             break}}
                     return indice}
-                    noticias.splice(obtenerindice(), 1)
-                    localStorage.setItem("noticias", JSON.stringify(noticias));};
-            
-            location.reload()
+                    noticias.splice(obtenerindice(), 1);
+                    localStorage.setItem("noticias", JSON.stringify(noticias));
+                    location.reload();
+                }
         })}
 }
-
 
 botoneditar.addEventListener("click", editarnoticia)
 botoncrear.addEventListener("click", crearnoticia)

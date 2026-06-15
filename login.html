@@ -16,7 +16,7 @@
         </div>
         <div class="header-derecha">
             <button id="btn-darkmode">Modo oscuro</button>
-            <a href="index.html" id="modificar">Home</a>
+            <a href="index.html" id="link-home">Home</a>
         </div>
     </div>
 </header>
@@ -24,14 +24,19 @@
         <h2>Inicio de sesión del Administrador</h2>
         <p> Para poder editar y cargar noticias</p>
         <form id="form-login">
-            <label> Usuario: </label> <input id="username">
-            <br>
-            <label> Contraseña: </label> <input type="password" id="password">
+            <label for="username">Usuario:</label>
+            <input id="username">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password">
             <button type="button" id="mostrarcontraseña"> Mostrar Contraseña</button>
             <br> <button type="submit" id="enviar">Iniciar sesión</button>
         </form>
     </main>
-
+    <script>
+        if(sessionStorage.getItem("token")){
+            window.location.href = "admin.html"
+        }
+    </script>
     <script src="js/darkmode.js"></script>
     <script src="js/auth.js"></script>
 

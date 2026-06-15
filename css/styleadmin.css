@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: Georgia, serif;
 }
+
  
 body {
     width: 100%;
@@ -36,16 +37,16 @@ header {
     justify-content: flex-end;
 }
  
+header .header-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    font-family: Georgia, serif;
+}
+
 .header-logo {
     flex: 2;
     text-align: center;
-}
- 
-.header-logo h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #000;
-    font-family: Georgia, serif;
 }
  
 .btn-hamburguesa {
@@ -66,55 +67,66 @@ header {
  
 #btn-darkmode {
     padding: 0.4rem 1.2rem;
-    border: 2px solid #333;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    background: transparent;
-    cursor: pointer;
     font-size: 0.9rem;
+    cursor: pointer;
     transition: all 0.2s;
+    font-family: Georgia, serif;
+    border: none;
+    
 }
  
 #btn-darkmode:hover {
-    background-color: #333;
-    color: white;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
 
-.header-derecha #modificar{
+.header-derecha #link-home{
     padding: 0.4rem 1.2rem;
-    border: #666;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border-radius: 20px;
-    background: transparent;
-    cursor: pointer;
     font-size: 0.9rem;
+    cursor: pointer;
     transition: all 0.2s;
-    color: #000000;
+    font-family: Georgia, serif;
     text-decoration: none;
+}
+
+.header-derecha #link-home:hover {
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
  
 /* cerrar sesión — mismo estilo que el link de "Iniciar sesión" en index */
 #boton-logout {
     padding: 0.4rem 1.2rem;
-    background-color: #333;
-    border: #666;
-    color: white;
-    border: none;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);;
+    color: rgb(0, 0, 0);
     border-radius: 20px;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
     font-family: Georgia, serif;
+    border: none;
 }
  
 #boton-logout:hover {
-    background-color: #555;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
 
+.header-nav .Modificar {
+    display: none;
+}
 
 .header-nav ul a  {
     padding: 10px 24px;
     padding-top: 14px;
     padding-bottom: 14px;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -139,19 +151,18 @@ main {
 
 .cardcambios h2 {
     margin-bottom: 1.3rem;
-    margin-bottom: 1.2rem;
     color: #111;
 }
 
 #cancelar {
     padding: 0.4rem 1.2rem;
-    background-color: #333;
-    color: white;
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s;
     font-family: Georgia, serif;
 }
 
@@ -167,22 +178,26 @@ main {
 }
 
 #createnoticia {
-    background-color: #333;
-    color: white;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid black;
 }
 
 #createnoticia:hover {
-    background-color: #111;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
+    color:#000
 }
 
 #editnoticia {
     background: white;
-    color: #333;
-    border: 2px solid #333;
+    color: #000000;
+    border: 2px solid #000000;
 }
 
 #editnoticia:hover {
-    background-color: #e1e8fa;
+    background: #E1E8FA;
+    background: radial-gradient(circle, rgba(225, 232, 250, 1) 12%, rgba(255, 255, 255, 1) 100%);
 }
 
 #deletenoticia {
@@ -198,31 +213,54 @@ main {
 
 /*esta parte es el car de editar noticias y crear. es un card con los formularios para editar la noticia*/
 .form-noticia {
-    max-width: 480px;
-    margin: 0 auto;
+    grid-column: 1 / -1;
+    max-width: none;
+    margin: 0;
     background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    padding: 2rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.1rem;
 }
  
 .form-noticia input {
     width: 100%;
-    padding: 0.7rem 1rem;
+    padding: 0.9rem 1.1rem;   /* antes 0.7rem 1rem */
     border: 1.5px solid #ddd;
     border-radius: 10px;
-    font-size: 0.95rem;
+    font-size: 1.05rem;       /* antes 0.95rem */
     font-family: Georgia, serif;
     background: #fafafa;
     transition: all 0.2s;
 }
+
+.form-noticia textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.9rem 1.1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-family: Georgia, serif;
+    background: #fafafa;
+    resize: vertical;       /* la puede estirar a mano si necesita más */
+    transition: all 0.2s;
+}
+.form-noticia textarea:focus {
+    outline: none;
+    border-color: #000000;
+    background: white;
+}
+.form-noticia textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
  
 .form-noticia input:focus {
     outline: none;
-    border-color: #333;
+    border-color: #000000;
     background: white;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
@@ -235,7 +273,7 @@ main {
 #guardar {
     margin-top: 0.5rem;
     padding: 0.7rem;
-    background-color: #333;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 20px;
@@ -252,38 +290,61 @@ main {
 
 /* aca esta el diseño posta de los botones de editar y eliminar noticia, los puse dentro de cada card de noticia para que quede mas claro a que noticia se refiere cada boton, y les puse un icono para que sea mas visual */
 
-.lapiz, .tachito { /*bueno al final no le puse los emojis porque se me iban a ver muy grandes y no supe ponerlos mas chicos*/
-    margin-top: auto;   /* esto lo fija abajo */
-    padding: 0.15rem 0.5rem;
-    font-size: 0.7rem;
-    border: none;
+/* modo claro */
+.lapiz {
+    margin-top: auto;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    border: 1.5px solid #000;
     border-radius: 20px;
     cursor: pointer;
     font-family: Georgia, serif;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
-    opacity: 0.8;
-    transition: all 0.2s;
     background-color: transparent;
+    color: #000;
+    transition: all 0.2s;
 }
 
-.lapiz:hover { 
-    background-color: #555; 
+.tachito {
+    margin-top: auto;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    border: 1.5px solid #c0392b;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: transparent;
+    color: #c0392b;
+    transition: all 0.2s;
 }
- 
-.tachito:hover { 
-    background-color: #e74c3c; 
+
+.lapiz:hover {
+    background-color: #000;
+    color: white;
+}
+
+.tachito:hover {
+    background-color: #c0392b;
+    color: white;
 }
  
 /* esto hace que para el admin se mas facil buscar noticias en el caso que haya muchas, por eso lo dejamos*/
 #buscadorxtitulo {
     padding: 0.5rem 1rem;
-    border: 2px solid #333;
+    border: 2px solid #000000;
     border-radius: 8px;
     font-size: 1rem;
     font-family: Georgia, serif;
     margin-bottom: 1rem;
     display: block;
+}
+
+#buscadorxtitulo:disabled { /*cuando este creando o editando noticia*/
+    opacity: 0.5;
+    cursor: not-allowed;
 }
  
 /* las noticias se ven exactamente igual que en el index, el mismo orden y todo */
@@ -328,7 +389,7 @@ main {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(225,232,250,1) 100%);
 }
  
-/* darkmode FALTA AGREGAR LO DEL MODOD OBSC_UTO DE LO N_UVOVOVOVOVO*/
+/* darkmode*/
 body.dark {
     background-color: #111;
     color: #f0f0f0;
@@ -354,8 +415,10 @@ body.dark #boton-logout:hover {
 }
 
 body.dark .header-nav ul a {
-    background: transparent;
+    color: #f0f0f0;
+    background: none;
 }
+
 
 body.dark .header-derecha #modificar{
     background-color: #444;
@@ -366,17 +429,7 @@ body.dark #btn-darkmode {
     border-color: #f0f0f0;
     color: #f0f0f0;
 }
- 
-body.dark #btn-darkmode:hover {
-    background-color: #f0f0f0;
-    color: #111;
-}
- 
-body.dark #editnoticia {
-    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
-    color: #f0f0f0;
-    border-color: #555;
-}
+
  
 body.dark #buscadorxtitulo {
     background-color: #2a2a2a;
@@ -398,13 +451,154 @@ body.dark .noticia p {
     background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
     color: #ccc;
 }
+
+body.dark .cardcambios h2 {
+    color: #f0f0f0;
+}
+
+body.dark .form-noticia {
+    background: linear-gradient(135deg, #1a1a1a 0%, #1e1e3a 100%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+body.dark .form-noticia input,
+body.dark .form-noticia textarea {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #555;
+}
+body.dark .form-noticia input::placeholder,
+body.dark .form-noticia textarea::placeholder {
+    color: #888;
+}
+body.dark .form-noticia input:focus,
+body.dark .form-noticia textarea:focus {
+    background: #333;
+    border-color: #f0f0f0;
+}
+
+body.dark .lapiz {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+
+body.dark .tachito {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+body.dark .lapiz:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+
+body.dark .tachito:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+body.dark #guardar {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark #guardar:hover{
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+}
+
+body.dark #cancelar {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark #cancelar:hover{
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+} 
+
+body.dark  #createnoticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border: 1.5px solid #555;
+}
+
+body.dark #createnoticia:hover{
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+} 
+
+body.dark #editnoticia {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+body.dark #editnoticia:hover{
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+} 
+
+
+body.dark #boton-logout,
+body.dark #btn-darkmode {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+body.dark .header-derecha #link-home {
+    background: linear-gradient(90deg, #1a1a1a 0%, #1e1e3a 100%);
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+body.dark #boton-logout:hover {
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+}
+
+body.dark .header-derecha #link-home:hover {
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color:#ffffff;
+    transition:all 0.3s ease 0s;
+}
+
+body.dark #btn-darkmode:hover {
+    background: #1E1E3A;
+    background: radial-gradient(circle, rgba(30, 30, 58, 1) 12%, rgba(26, 26, 26, 1) 100%);
+    color: #ffffff;
+    transition: all 0.3s ease 0s;
+}
+
 /* en pantallas chicas: nav oculto, aparece con el hamburguesa */
 @media (max-width: 768px) {
     .header-nav {
         display: none;
     }
     .header-nav.nav-abierto {
-        display: block;
+        display: flex;
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul {
+        gap: 0;
+    }
+
+    .header-nav.nav-abierto ul a {
+        padding: 0;
     }
 }
 
@@ -414,6 +608,51 @@ body.dark .noticia p {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .header-derecha {
+        flex-wrap: wrap; 
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .header-logo {
+        order: -1;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    #btn-darkmode,
+    #boton-logout,
+    #link-home {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+ @media (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: 1fr;   /* una sola columna en móvil */
+    }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    .ubicacion-noticias {
+        grid-template-columns: repeat(2, 1fr);  /* dos columnas en tablet chico */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 0.75rem;
+        margin: 1rem auto;
+    }
+} 
 
 #cancelar {
     display:none
