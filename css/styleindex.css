@@ -18,6 +18,7 @@ header {
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 100000;
 }
  
 /* aca estan todos lo elemento que aparecen en el header */
