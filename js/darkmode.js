@@ -1,4 +1,4 @@
-// darkmode me costó un koñazo
+// darkmode me costo
 // basicamente: si habia darkmode guardado lo aplica al cargar, y el boton lo togglea
 
 function aplicarDarkmode() {
