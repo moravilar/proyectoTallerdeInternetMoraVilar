@@ -2,7 +2,7 @@
 
 Portal de noticias con cotización del dólar en tiempo real, autenticación de administrador y gestión completa de contenido vía `localStorage`.
 
-Trabajo Práctico de Taller de Internet I — Universidad Austral, LCD 2026 (1° Cuatrimestre). Desarrollado por Castro, María del Pilar, Cuenca, Eugenia María y Vilar, Mora Lucía.
+Trabajo Práctico de Taller de Internet I — Universidad Austral, LCD 2026 (1° Cuatrimestre). Desarrollado por Castro, María del Pilar, Cuenca, Eugenia María y Vilar, Mora Lucía. Ultimas implementaciones por Vilar, Mora Lucía.
 
 Las cotizaciones se obtienen de la [API pública de Bluelytics](https://bluelytics.com.ar/#!/api) y la autenticación se realiza a través de [DummyJSON](https://dummyjson.com/docs/auth#auth-login).
 
